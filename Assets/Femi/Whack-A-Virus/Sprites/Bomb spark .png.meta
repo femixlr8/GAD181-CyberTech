@@ -202,7 +202,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bomb spark _0: 1062960916639487083
+      Bomb spark _1: -280636072397746541
+      Bomb spark _2: 7917661992865588587
+      Bomb spark _3: 4765358181070015680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

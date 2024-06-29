@@ -178,7 +178,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bomb sparkplode _0: 9049257490582059417
+      Bomb sparkplode _1: 7703039175326749683
+      Bomb sparkplode _2: 6651164039311783862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
