@@ -18,9 +18,21 @@ public class Virus : MonoBehaviour
     private float duration = 1f;
 
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider2D;
+    private Vector2 boxOffset;
+    private Vector2 boxSize;
+    private Vector2 boxOffsetHidden;
+    private Vector2 boxSizeHidden;
 
     //Virus Parameters
     private bool hittable = true;
+
+    public enum VirusType { Standard, VirusB, Bomb};
+    private VirusType virusType;
+    private float bRate = 0.25f;
+    private int lives;
+    private float bombRate = 0f;
+
     private IEnumerator ShowHide(Vector2 start, Vector2 end)
     {
         //Make sure we start at the start
@@ -31,13 +43,18 @@ public class Virus : MonoBehaviour
         while (elapsed < showDuration)
         {
             transform.localPosition = Vector2.Lerp(start, end, elapsed / showDuration);
+            boxCollider2D.offset = Vector2.Lerp(boxOffsetHidden, boxOffset, elapsed/ showDuration);
+            boxCollider2D.size = Vector2.Lerp(boxSizeHidden, boxSize, elapsed/ showDuration);
+
             //Update at max framerate
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         //Make sure its exactly at the end
-        transform.localPosition = end; 
+        transform.localPosition = end;
+        boxCollider2D.offset = boxOffset;
+        boxCollider2D.size = boxSize;
 
         //Wait for duration to pass
         yield return new WaitForSeconds(duration);
@@ -47,6 +64,8 @@ public class Virus : MonoBehaviour
         while(elapsed < showDuration)
         {
             transform.localPosition = Vector2.Lerp(end, start, elapsed / showDuration);
+            boxCollider2D.offset = Vector2.Lerp(boxOffset, boxOffsetHidden, elapsed/ showDuration);
+            boxCollider2D.size = Vector2.Lerp(boxSize, boxSizeHidden, elapsed/ showDuration);
             //Update at max framerate.
             elapsed += Time.deltaTime;
             yield return null;
@@ -56,27 +75,94 @@ public class Virus : MonoBehaviour
         transform.localPosition = start;
     }
 
-    private void Start()
+    public void Activate(int level)
     {
+        SetLevel(level);
+        CreateNext();
         StartCoroutine(ShowHide(startPosition, endPosition));
+    }
+
+    private void CreateNext()
+    {
+        float random = Random.Range(0f, 1f);
+        if(random < bombRate)
+        {
+            //make a bomb.
+            virusType = VirusType.Bomb;
+            
+        }
+        else
+        {
+            if (random < bRate)
+            {
+                //Create a VirusB 
+                virusType = VirusType.VirusB;
+                spriteRenderer.sprite = VirusB;
+                lives = 2;
+            }
+            else
+            {
+                //Create a normal Virus
+                virusType = VirusType.Standard;
+                spriteRenderer.sprite = VirusA;
+                lives = 1;
+            }
+        }
+        
+
+        //Mark as hittable so we can register an onclick event
+        hittable = true;
     }
 
     private void Awake()
     {
         //Get references to the components to be used
         spriteRenderer = GetComponent<SpriteRenderer>();   
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        //Work out collider values
+        boxOffset = boxCollider2D.offset;
+        boxSize = boxCollider2D.size;
+        boxOffsetHidden = new Vector2(boxOffset.x, -startPosition.y /2f);
+        boxSizeHidden = new Vector2(boxSize.x, 0f);
     }
 
     private void OnMouseDown()
     {
-        if ( hittable)
+        if (hittable)
         {
-            spriteRenderer.sprite = VirusAHit;
-            //Stop the animation
-            StopAllCoroutines();
-            StartCoroutine(QuickHide());
-            //Turn off hittable so that player cant keep tapping for score
-            hittable = false;
+            switch (virusType)
+            {
+                case VirusType.Standard:
+                    spriteRenderer.sprite = VirusAHit;
+                    //Stop the animation
+                    StopAllCoroutines();
+                    StartCoroutine(QuickHide());
+                    //Turn off hittable so player cant keep tapping for score
+                    hittable = false;
+                    break;
+
+                case VirusType.VirusB:
+                    //If lives == 2 reduce life
+                    if (lives == 2)
+                    {
+                        spriteRenderer.sprite = VirusB;
+                        lives--;
+                    }
+                    else
+                    {
+                        spriteRenderer.sprite = VirusBHit;
+                        //stop the animation
+                        StopAllCoroutines();
+                        StartCoroutine(QuickHide());
+                        //turn off hittable so player cant keep tapping for score
+                        hittable = false;
+                    }
+                    break;
+                case VirusType.Bomb:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -95,6 +181,23 @@ public class Virus : MonoBehaviour
     {
         //Set the appropriate Virus parameters to hide it.
         transform.localPosition = startPosition;
+        boxCollider2D.offset = boxOffsetHidden;
+        boxCollider2D.size = boxSizeHidden;
+    }
+
+    private void SetLevel(int level)
+        //As the level progresses, the game gets harder
+    {
+        //As level increases increase the bomb rate to 0.25 at level 10
+        bombRate = Mathf.Min(level * 0.025f, 0.25f);
+
+        //Increases the amounts of Double-Tap Virus until 100% at level 40
+        bRate = Mathf.Min(level * 0.025f, 1f);
+
+        //Duration bounds get quicker as we progress. no cap on insanity.
+        float durationMin = Mathf.Clamp(1 - level * 0.1f, 0.01f, 1f);
+        float durationMax = Mathf.Clamp(2 - level * 0.1f, 0.01f, 2f);
+        duration = Random.Range(durationMin, durationMax);
     }
 }
     
