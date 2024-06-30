@@ -495,6 +495,11 @@ MonoBehaviour:
   - {fileID: 1466530990}
   - {fileID: 1939076904}
   - {fileID: 1081258482}
+  gameUI: {fileID: 1386102491}
+  outOfTimeText: {fileID: 1725548619}
+  bombText: {fileID: 1875137598}
+  timeText: {fileID: 2088766730}
+  scoreText: {fileID: 1267813821}
 --- !u!4 &561236774
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,7 +1329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1725548620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1460,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1875137599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1500,7 +1505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME OVER!!
+  m_text: BOMB EXPLODED!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}

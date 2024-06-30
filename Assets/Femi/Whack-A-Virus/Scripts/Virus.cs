@@ -38,6 +38,7 @@ public class Virus : MonoBehaviour
 
     private IEnumerator ShowHide(Vector2 start, Vector2 end)
     {
+        Debug.Log("ShowHide Coroutine started");
         //Make sure we start at the start
         transform.localPosition = start;
 
@@ -86,10 +87,13 @@ public class Virus : MonoBehaviour
             //we only give time penality if its not a bomb
             gameManager.Missed(virusIndex, virusType != VirusType.Bomb);
         }
+        Debug.Log("ShowHide Coroutine ended");
+
     }
 
     public void Hide()
     {
+        Debug.Log("Virus hidden");
         //Set the appropriate Virus parameters to hide it.
         transform.localPosition = startPosition;
         boxCollider2D.offset = boxOffsetHidden;

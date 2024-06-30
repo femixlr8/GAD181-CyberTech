@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("Game Started");
         //Hide/show the UI elements to show or not show
         outOfTimeText.SetActive (false);
         bombText.SetActive (false);
