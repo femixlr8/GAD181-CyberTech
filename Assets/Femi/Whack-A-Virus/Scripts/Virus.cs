@@ -29,7 +29,6 @@ public class Virus : MonoBehaviour
 
     //Virus Parameters
     private bool hittable = true;
-
     public enum VirusType { Standard, VirusB, Bomb};
     private VirusType virusType;
     private float bRate = 0.25f;
@@ -89,55 +88,23 @@ public class Virus : MonoBehaviour
         }
     }
 
-    public void Activate(int level)
+    public void Hide()
     {
-        SetLevel(level);
-        CreateNext();
-        StartCoroutine(ShowHide(startPosition, endPosition));
+        //Set the appropriate Virus parameters to hide it.
+        transform.localPosition = startPosition;
+        boxCollider2D.offset = boxOffsetHidden;
+        boxCollider2D.size = boxSizeHidden;
     }
 
-    private void CreateNext()
+    private IEnumerator QuickHide()
     {
-        float random = Random.Range(0f, 1f);
-        if(random < bombRate)
-        {
-            //make a bomb.
-            virusType = VirusType.Bomb;
-            
-        }
-        else
-        {
-            if (random < bRate)
-            {
-                //Create a VirusB 
-                virusType = VirusType.VirusB;
-                spriteRenderer.sprite = VirusB;
-                lives = 2;
-            }
-            else
-            {
-                //Create a normal Virus
-                virusType = VirusType.Standard;
-                spriteRenderer.sprite = VirusA;
-                lives = 1;
-            }
-        }
-        
+        yield return new WaitForSeconds(0.25f);
 
-        //Mark as hittable so we can register an onclick event
-        hittable = true;
-    }
-
-    private void Awake()
-    {
-        //Get references to the components to be used
-        spriteRenderer = GetComponent<SpriteRenderer>();   
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        //Work out collider values
-        boxOffset = boxCollider2D.offset;
-        boxSize = boxCollider2D.size;
-        boxOffsetHidden = new Vector2(boxOffset.x, -startPosition.y /2f);
-        boxSizeHidden = new Vector2(boxSize.x, 0f);
+        //Whist player was waiting it may have spawned again here, so just check that hasnt happened before hiding it, this will stop it flickering in that case
+        if (!hittable)
+        {
+            Hide();
+        }
     }
 
     private void OnMouseDown()
@@ -184,27 +151,41 @@ public class Virus : MonoBehaviour
         }
     }
 
-    private IEnumerator QuickHide()
+    private void CreateNext()
     {
-        yield return new WaitForSeconds(0.25f);
-
-        //Whist player was waiting it may have spawned again here, so just check that hasnt happened before hiding it, this will stop it flickering in that case
-        if(!hittable)
+        float random = Random.Range(0f, 1f);
+        if (random < bombRate)
         {
-            Hide();
-        }
-    }
+            //make a bomb.
+            virusType = VirusType.Bomb;
 
-    public  void Hide()
-    {
-        //Set the appropriate Virus parameters to hide it.
-        transform.localPosition = startPosition;
-        boxCollider2D.offset = boxOffsetHidden;
-        boxCollider2D.size = boxSizeHidden;
+        }
+        else
+        {
+            random = Random.Range(0f, 1f);
+            if (random < bRate)
+            {
+                //Create a VirusB 
+                virusType = VirusType.VirusB;
+                spriteRenderer.sprite = VirusB;
+                lives = 2;
+            }
+            else
+            {
+                //Create a normal Virus
+                virusType = VirusType.Standard;
+                spriteRenderer.sprite = VirusA;
+                lives = 1;
+            }
+        }
+
+
+        //Mark as hittable so we can register an onclick event
+        hittable = true;
     }
 
     private void SetLevel(int level)
-        //As the level progresses, the game gets harder
+    //As the level progresses, the game gets harder
     {
         //As level increases increase the bomb rate to 0.25 at level 10
         bombRate = Mathf.Min(level * 0.025f, 0.25f);
@@ -218,6 +199,25 @@ public class Virus : MonoBehaviour
         duration = Random.Range(durationMin, durationMax);
     }
 
+    private void Awake()
+    {
+        //Get references to the components to be used
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        //Work out collider values
+        boxOffset = boxCollider2D.offset;
+        boxSize = boxCollider2D.size;
+        boxOffsetHidden = new Vector2(boxOffset.x, -startPosition.y / 2f);
+        boxSizeHidden = new Vector2(boxSize.x, 0f);
+    }
+
+    public void Activate(int level)
+    {
+        SetLevel(level);
+        CreateNext();
+        StartCoroutine(ShowHide(startPosition, endPosition));
+    }
+
     //Used by the game manager to uniquely idenitfy virus
     public void SetIndex(int index)
     {
@@ -229,5 +229,6 @@ public class Virus : MonoBehaviour
         hittable = false;
         StopAllCoroutines();
     }
+    
 }
     

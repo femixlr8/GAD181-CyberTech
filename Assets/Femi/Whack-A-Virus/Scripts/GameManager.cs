@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     //Global variables
     private float timeRemaining;
-    private HashSet<Virus> currentVirus = new HashSet<Virus> ();
+    private HashSet<Virus> currentVirus = new HashSet<Virus>();
     private int score;
     private bool playing = false;
 
@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            bombText.SetActive(true );
+            bombText.SetActive(true);
         }
-        //Hide all the moles
+        //Hide all the virus
         foreach(Virus virus in viruses)
         {
             virus.StopGame();
