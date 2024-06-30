@@ -5,6 +5,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Virus> viruses;
 
+    [Header("UI Objects")]
+    [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject outOfTimeText;
+    [SerializeField] private GameObject bombText;
+    [SerializeField] private TMPro.TextMeshProUGUI timeText;
+    [SerializeField] private TMPro.TextMeshProUGUI scoreText;
+
     //Hardcoded variables 
     private float startingTime = 30f;
 
@@ -16,6 +23,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        //Hide/show the UI elements to show or not show
+        outOfTimeText.SetActive (false);
+        bombText.SetActive (false);
+        gameUI.SetActive (true);
         //Hide all the visible virus
         for (int i = 0; i < viruses.Count; i++)
         {
@@ -28,11 +39,21 @@ public class GameManager : MonoBehaviour
         //start with 30 seconds
         timeRemaining = startingTime;
         score = 0;
+        scoreText.text = "0";
         playing = true;
     }
 
     public void GameOver(int type)
     {
+        //SHow the message
+        if(type == 0)
+        {
+            outOfTimeText.SetActive(true);
+        }
+        else
+        {
+            bombText.SetActive(true );
+        }
         //Hide all the moles
         foreach(Virus virus in viruses)
         {
@@ -55,6 +76,7 @@ public class GameManager : MonoBehaviour
                 GameOver(0);
             }
 
+            timeText.text = $"{(int)timeRemaining / 60}:{(int)timeRemaining % 60:D2}";
             //Check if we need to add any more virus 
             if(currentVirus.Count <= (score / 10))
             {
@@ -74,6 +96,7 @@ public class GameManager : MonoBehaviour
     {
         //Add and update score
         score += 1;
+        scoreText.text = $"{score}";
         //increase time by a  little bit
         timeRemaining += 1;
         //remove from active virus
