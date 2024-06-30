@@ -9,6 +9,9 @@ public class Virus : MonoBehaviour
     [SerializeField] private Sprite VirusB;
     [SerializeField] private Sprite VirusBHit;
 
+    [Header("Game Manager")]
+    [SerializeField] private GameManager gameManager;
+
     //The offset of the sprite to hide it
     private Vector2 startPosition = new Vector2(0f, -2f);
     private Vector2 endPosition = Vector2.zero;
@@ -32,6 +35,7 @@ public class Virus : MonoBehaviour
     private float bRate = 0.25f;
     private int lives;
     private float bombRate = 0f;
+    private int virusIndex = 0;
 
     private IEnumerator ShowHide(Vector2 start, Vector2 end)
     {
@@ -73,6 +77,16 @@ public class Virus : MonoBehaviour
 
         //Make sure we're exactly back at the start position.
         transform.localPosition = start;
+        boxCollider2D.offset = boxOffsetHidden;
+        boxCollider2D.size = boxSizeHidden;
+
+        //If we got to the end and its still hittable then player missed it
+        if (hittable)
+        {
+            hittable = false;
+            //we only give time penality if its not a bomb
+            gameManager.Missed(virusIndex, virusType != VirusType.Bomb);
+        }
     }
 
     public void Activate(int level)
@@ -134,6 +148,7 @@ public class Virus : MonoBehaviour
             {
                 case VirusType.Standard:
                     spriteRenderer.sprite = VirusAHit;
+                    gameManager.AddScore(virusIndex);
                     //Stop the animation
                     StopAllCoroutines();
                     StartCoroutine(QuickHide());
@@ -151,6 +166,7 @@ public class Virus : MonoBehaviour
                     else
                     {
                         spriteRenderer.sprite = VirusBHit;
+                        gameManager.AddScore(virusIndex);
                         //stop the animation
                         StopAllCoroutines();
                         StartCoroutine(QuickHide());
@@ -159,6 +175,8 @@ public class Virus : MonoBehaviour
                     }
                     break;
                 case VirusType.Bomb:
+                    //GAME OVER, 1 for bomb
+                    gameManager.GameOver(1);
                     break;
                 default:
                     break;
@@ -177,7 +195,7 @@ public class Virus : MonoBehaviour
         }
     }
 
-    private void Hide()
+    public  void Hide()
     {
         //Set the appropriate Virus parameters to hide it.
         transform.localPosition = startPosition;
@@ -198,6 +216,18 @@ public class Virus : MonoBehaviour
         float durationMin = Mathf.Clamp(1 - level * 0.1f, 0.01f, 1f);
         float durationMax = Mathf.Clamp(2 - level * 0.1f, 0.01f, 2f);
         duration = Random.Range(durationMin, durationMax);
+    }
+
+    //Used by the game manager to uniquely idenitfy virus
+    public void SetIndex(int index)
+    {
+        virusIndex = index;
+    }
+
+    public void StopGame()
+    {
+        hittable = false;
+        StopAllCoroutines();
     }
 }
     
