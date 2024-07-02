@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "block")
         {
-            health= health-50;
+            health--;
+            Destroy (collision.gameObject);
         }
     }
 }
