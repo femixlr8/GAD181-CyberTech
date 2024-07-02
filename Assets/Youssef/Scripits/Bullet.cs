@@ -24,9 +24,10 @@ public class Bullet : MonoBehaviour
         Vector3 rotation = transform.position - mousePos;
 
         //To mantain the cursor position the magnitude and speed for ht ebullet will be the same
+
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
-        //Atan 2  figures the direction of the bullet , but in radians so radians to degrees, since quantorion works on degres
+        //Atan 2  figures the angle of the bullet line it follows but in radians so mathf.radians to degrees is used, since quantorion works on degres
 
         float deg = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, deg);
