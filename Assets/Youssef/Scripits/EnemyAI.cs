@@ -31,23 +31,22 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 direction = startingPoint.position - transform.position;
 
-        Debug.Log("Starting Point: " + startingPoint.position);
-        Debug.Log("Current Position: " + transform.position);
+       
 
         if (startingPoint == rightPoint.transform)
         {
             rb.velocity = new Vector2(enemySpeed, rb.velocity.y);
-            Debug.Log("Moving right");
+            
         }
         else
         {
             rb.velocity = new Vector2(-enemySpeed, rb.velocity.y);
-            Debug.Log("Moving left");
+            
         }
 
         if (Vector2.Distance(transform.position, startingPoint.position) < 0.1f)
         {
-            Debug.Log("Switching direction");
+            
             startingPoint = (startingPoint == rightPoint.transform) ? leftPoint.transform : rightPoint.transform;
         }
     }
