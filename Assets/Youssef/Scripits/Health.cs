@@ -19,14 +19,8 @@ public class Health : MonoBehaviour
 
         if (startingHealth <= 0)
         {
-            if (gameController != null)
-            {
-                gameController.MoveToNextScene(); // Move to next scene on death
-            }
-            else
-            {
-                Debug.LogWarning("GameController reference not assigned to Health script.");
-            }
+            Debug.LogWarning("GameController reference not assigned to Health script.");
+            
         }
     }
 }

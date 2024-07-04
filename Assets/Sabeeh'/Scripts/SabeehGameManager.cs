@@ -19,6 +19,7 @@ public class SabeehGameManager : MonoBehaviour
     public TextMeshProUGUI timerValue;
     public GameController gameController;
 
+    private bool gameEnded = false; // Flag to prevent multiple scene loads
 
     // Start is called before the first frame update
     void Start()
@@ -35,21 +36,24 @@ public class SabeehGameManager : MonoBehaviour
         Timer();
     }
 
-    void GameOver() 
+    void GameOver()
     {
-        if (player.health <= 0 || currentTime <= 0)
+        if (!gameEnded && (player.health <= 0 || currentTime <= 0))
         {
-           gameOverPanel.SetActive(true);
-            Time.timeScale = 0;
-            gameOverBackground.color = Color.red;
-            gameOverText.text = "Game Over";
+            gameEnded = true; // Prevent multiple calls
+
+            gameOverPanel.SetActive(true);
+            gameOverBackground.color = (currentTime <= 0) ? Color.green : Color.red;
+            gameOverText.text = (currentTime <= 0) ? "You Win!" : "Game Over";
+
+            
 
             if (gameController != null)
             {
-                gameController.MoveToNextScene();
+                gameController.GameOver(currentTime <= 0 ? 1 : 0); // Inform GameController about game over type
             }
         }
-    }    
+    }
 
     public void Timer()
     {
@@ -60,16 +64,14 @@ public class SabeehGameManager : MonoBehaviour
         else
         {
             currentTime = 0;
-            gameOverPanel.SetActive(true );
-            gameOverBackground.color = Color.green;
-            gameOverText.text = "You Win!";
-            Time.timeScale = 0;
+            GameOver(); // Check for game over condition when time runs out
         }
-        int timerINT = (int)currentTime;
 
+        int timerINT = (int)currentTime;
         timerValue.text = timerINT.ToString();
     }
-    public void AddScore ()
+
+    public void AddScore()
     {
         currentScore++;
     }

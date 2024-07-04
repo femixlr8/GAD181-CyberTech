@@ -41,10 +41,25 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // You can call this method from FemiGameManager or any other script to move to the next scene
-    public void MoveToNextScene()
+    // Method to handle game over from minigame managers
+    public void GameOver(int type)
     {
+        StartCoroutine(LoadNextSceneAsync(type));
+    }
+
+    private IEnumerator LoadNextSceneAsync(int type)
+    {
+        yield return new WaitForSecondsRealtime(2f); // Delay before loading next scene
+
+        Time.timeScale = 1; // Ensure time scale is normal before loading next scene
+
         LoadNextScene();
+    }
+
+    private void Awake()
+    {
+        // Ensure this object persists across scene changes
+        DontDestroyOnLoad(gameObject);
     }
 
 }
