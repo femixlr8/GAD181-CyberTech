@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FemiGameManager : MonoBehaviour
@@ -9,13 +10,13 @@ public class FemiGameManager : MonoBehaviour
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject outOfTimeText;
     [SerializeField] private GameObject bombText;
-    [SerializeField] private TMPro.TextMeshProUGUI timeText;
-    [SerializeField] private TMPro.TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    //Hardcoded variables 
+    // Hardcoded variables 
     private float startingTime = 30f;
 
-    //Global variables
+    // Global variables
     private float timeRemaining;
     private HashSet<Virus> currentVirus = new HashSet<Virus>();
     private int score;
@@ -28,45 +29,52 @@ public class FemiGameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Game Started");
-        //Hide/show the UI elements to show or not show
-        outOfTimeText.SetActive (false);
-        bombText.SetActive (false);
-        gameUI.SetActive (true);
-        //Hide all the visible virus
-        for (int i = 0; i < viruses.Count; i++)
-        {
-            viruses[i].Hide();
-            viruses[i].SetIndex(i);
-        }
-        //remove any old game state
-        currentVirus.Clear ();
+        // Hide/show the UI elements to show or not show
+        outOfTimeText.SetActive(false);
+        bombText.SetActive(false);
+        gameUI.SetActive(true);
 
-        //start with 30 seconds
+        // Hide all the visible viruses
+        foreach (Virus virus in viruses)
+        {
+            virus.Hide();
+            virus.SetIndex(viruses.IndexOf(virus));
+        }
+
+        // Remove any old game state
+        currentVirus.Clear();
+
+        // Start with 30 seconds
         timeRemaining = startingTime;
+        UpdateTimeText(); // Update time text initially
         score = 0;
-        scoreText.text = "0";
+        UpdateScoreText(); // Update score text initially
         playing = true;
     }
 
     public void GameOver(int type)
     {
-        //SHow the message
-        if(type == 0)
+        // Show the message
+        if (type == 0)
         {
             outOfTimeText.SetActive(true);
+            Debug.Log("Out of time!");
         }
         else
         {
             bombText.SetActive(true);
+            Debug.Log("Bomb exploded!");
         }
-        //Hide all the virus
-        foreach(Virus virus in viruses)
+
+        // Hide all the viruses
+        foreach (Virus virus in viruses)
         {
             virus.StopGame();
         }
 
-        //stop the game
+        // Stop the game
         playing = false;
+        Debug.Log("Game Over");
 
         // Trigger event that the game has ended
         GameEnded?.Invoke();
@@ -76,21 +84,22 @@ public class FemiGameManager : MonoBehaviour
     {
         if (playing)
         {
-            //update time
+            // Update time
             timeRemaining -= Time.deltaTime;
-            if(timeRemaining <= 0)
+            if (timeRemaining <= 0)
             {
-                timeRemaining= 0;
+                timeRemaining = 0;
                 GameOver(0);
             }
 
-            timeText.text = $"{(int)timeRemaining / 60}:{(int)timeRemaining % 60:D2}";
-            //Check if we need to add any more virus 
-            if(currentVirus.Count <= (score / 10))
+            UpdateTimeText(); // Update time text every frame
+
+            // Check if we need to add any more viruses 
+            if (currentVirus.Count <= (score / 10))
             {
-                //Choose a random virus
+                // Choose a random virus
                 int index = Random.Range(0, viruses.Count);
-                //Doesnt matter if its alr doing something, just try again next frame
+                // Doesn't matter if it's already doing something, just try again next frame
                 if (!currentVirus.Contains(viruses[index]))
                 {
                     currentVirus.Add(viruses[index]);
@@ -100,26 +109,48 @@ public class FemiGameManager : MonoBehaviour
         }
     }
 
+    void UpdateTimeText()
+    {
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        timeText.text = string.Format("{0}:{1:D2}", minutes, seconds);
+
+        Debug.Log("Time text Updated: " + timeText.text);
+        Debug.Log("Minutes: " + minutes + " Seconds: " + seconds);
+    }
+
+    void UpdateScoreText()
+    {
+        scoreText.text = score.ToString();
+    }
+
     public void AddScore(int virusIndex)
     {
-        //Add and update score
+        // Add and update score
         score += 1;
-        scoreText.text = $"{score}";
-        //increase time by a  little bit
+        UpdateScoreText();
+
+        // Increase time by a little bit
         timeRemaining += 1;
-        //remove from active virus
+
+        // Remove from active viruses
         currentVirus.Remove(viruses[virusIndex]);
+
+        Debug.Log("Score increased. New score: " + score);
     }
 
     public void Missed(int virusIndex, bool isVirus)
     {
         if (isVirus)
         {
-            //decrease time by a little bit
+            // Decrease time by a little bit
             timeRemaining -= 2;
+            UpdateTimeText(); // Update time text when time decreases
         }
 
-        //remove from active virus
+        // Remove from active viruses
         currentVirus.Remove(viruses[virusIndex]);
+
+        Debug.Log("Missed virus. Current time remaining: " + timeRemaining);
     }
 }

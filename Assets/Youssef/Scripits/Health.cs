@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    
     public int startingHealth;
     public int maxHealth = 50;
-    public GameController gameController;
+    public GameController gameController; // Reference to GameController
 
-    
-    // Start is called before the first frame update
     void Start()
     {
-        startingHealth = maxHealth; 
+        startingHealth = maxHealth;
     }
 
-    // Update is called once per frame
     public void DamageApplied(int damage)
     {
         startingHealth -= damage;
@@ -25,7 +21,11 @@ public class Health : MonoBehaviour
         {
             if (gameController != null)
             {
-                gameController.MoveToNextScene();
+                gameController.MoveToNextScene(); // Move to next scene on death
+            }
+            else
+            {
+                Debug.LogWarning("GameController reference not assigned to Health script.");
             }
         }
     }
