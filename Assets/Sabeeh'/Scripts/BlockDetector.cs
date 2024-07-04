@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockDetector : MonoBehaviour
 {
-    public GameManager gameManager;
+    public FemiGameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,13 @@ public class BlockDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "block")
         {
-            gameManager.AddScore();
-            Destroy(collision.gameObject);
+            Virus virus = collision.gameObject.GetComponent<Virus>();
+            if (virus != null)
+            {
+                int virusIndex = virus.GetIndex();
+                gameManager.AddScore(virusIndex);
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class Virus : MonoBehaviour
     [SerializeField] private Sprite VirusBHit;
 
     [Header("Game Manager")]
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private FemiGameManager gameManager;
 
     //The offset of the sprite to hide it
     private Vector2 startPosition = new Vector2(0f, -2f);
@@ -226,6 +226,11 @@ public class Virus : MonoBehaviour
     public void SetIndex(int index)
     {
         virusIndex = index;
+    }
+
+    public int GetIndex()
+    {
+        return virusIndex;
     }
 
     public void StopGame()

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class SabeehGameManager : MonoBehaviour
 {
     public int currentScore;
     public int maxScore = 7;
@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Image gameOverBackground;
     public TextMeshProUGUI timerValue;
+    public GameController gameController;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +37,17 @@ public class GameManager : MonoBehaviour
 
     void GameOver() 
     {
-        if (player.health <= 0)
+        if (player.health <= 0 || currentTime <= 0)
         {
            gameOverPanel.SetActive(true);
             Time.timeScale = 0;
             gameOverBackground.color = Color.red;
             gameOverText.text = "Game Over";
+
+            if (gameController != null)
+            {
+                gameController.MoveToNextScene();
+            }
         }
     }    
 

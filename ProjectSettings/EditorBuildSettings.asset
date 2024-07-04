@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2D Mingame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BaseGame_Scene.unity
+    guid: 4f9fb82d2c140c84685aeef6244e3ac4
+  - enabled: 1
+    path: Assets/Femi/Whack-A-Virus/Scene/Whack-A-Virus-Scene.unity
+    guid: 476f14b22678c1745b44f198941e31cd
+  - enabled: 1
+    path: Assets/Youssef/MIniGameScenes/MalwareAttacks.unity
+    guid: c6ccd808ea578f04788014bb1290e2f8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

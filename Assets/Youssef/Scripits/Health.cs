@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     
     public int startingHealth;
     public int maxHealth = 50;
+    public GameController gameController;
 
     
     // Start is called before the first frame update
@@ -19,9 +20,13 @@ public class Health : MonoBehaviour
     public void DamageApplied(int damage)
     {
         startingHealth -= damage;
-        if(startingHealth <= 0) 
-        { 
-            Destroy(gameObject);
+
+        if (startingHealth <= 0)
+        {
+            if (gameController != null)
+            {
+                gameController.MoveToNextScene();
+            }
         }
     }
 }

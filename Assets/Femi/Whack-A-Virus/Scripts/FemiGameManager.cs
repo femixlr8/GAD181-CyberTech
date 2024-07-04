@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class FemiGameManager : MonoBehaviour
 {
     [SerializeField] private List<Virus> viruses;
 
@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     private HashSet<Virus> currentVirus = new HashSet<Virus>();
     private int score;
     private bool playing = false;
+
+    // Event for game over
+    public delegate void OnGameEnd();
+    public static event OnGameEnd GameEnded;
 
     public void StartGame()
     {
@@ -63,6 +67,9 @@ public class GameManager : MonoBehaviour
 
         //stop the game
         playing = false;
+
+        // Trigger event that the game has ended
+        GameEnded?.Invoke();
     }
 
     void Update()

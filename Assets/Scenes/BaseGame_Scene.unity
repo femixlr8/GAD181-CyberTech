@@ -595,14 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f638b1e55ab724c827961a196e97ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPromptPanel: {fileID: 2024153971}
-  miniGame1Panel: {fileID: 1617080438}
-  miniGame2Panel: {fileID: 1400095580}
-  winScreenPanel: {fileID: 1044433995}
-  continueButton: {fileID: 395545993}
-  miniGame1Button: {fileID: 1051434421}
-  miniGame2Button1: {fileID: 556269186}
-  miniGame2Button2: {fileID: 1625324192}
+  sceneNames:
+  - Whack-A-Virus-Scene
+  - 2D Mingame
+  - MalwareAttacks
 --- !u!4 &260914474
 Transform:
   m_ObjectHideFlags: 0

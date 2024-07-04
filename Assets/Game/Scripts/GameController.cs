@@ -1,78 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject startPromptPanel;
-    public GameObject miniGame1Panel;
-    public GameObject miniGame2Panel;
-    public GameObject winScreenPanel;
+    public List<string> sceneNames; // List of scene names to load
+    private int currentIndex = 0; // Index of the current scene being played
 
-    public Button continueButton;
-    public Button miniGame1Button;
-    public Button miniGame2Button1;
-    public Button miniGame2Button2;
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        ShowStartPrompt();
-
-        continueButton.onClick.AddListener(StartMiniGame1);
-        miniGame1Button.onClick.AddListener(CompleteMiniGame1);
-        miniGame2Button1.onClick.AddListener(PressMiniGame2Button1);
-        miniGame2Button2.onClick.AddListener(PressMiniGame2Button2);
-        
+        ShuffleScenes(); // Shuffle the scene list to randomize play order
+        LoadNextScene(); // Start with the first scene
     }
 
-    private void ShowStartPrompt()
+    private void ShuffleScenes()
     {
-        startPromptPanel.SetActive(true);
-        miniGame1Panel.SetActive(false);
-        miniGame2Panel.SetActive(false);
-        winScreenPanel.SetActive(false);
-
-    }
-
-    private void StartMiniGame1()
-    {
-        startPromptPanel.SetActive(false);
-        miniGame1Panel.SetActive(true);
-
-    }
-
-    private void CompleteMiniGame1()
-    {
-        miniGame1Panel.SetActive(false);
-        miniGame2Panel.SetActive(true);
-
-    }
-
-    private void PressMiniGame2Button1()
-    {
-        miniGame2Button1.interactable = false;
-        CheckMiniGame2Completion();
-
-    }
-
-    private void PressMiniGame2Button2()
-    {
-        miniGame2Button2.interactable = false;
-        CheckMiniGame2Completion();
-
-    }
-
-    private void CheckMiniGame2Completion()
-    {
-        if (!miniGame2Button1.interactable && !miniGame2Button2.interactable)
+        // Fisher-Yates shuffle algorithm to shuffle sceneNames list
+        for (int i = sceneNames.Count - 1; i > 0; i--)
         {
-            miniGame2Panel.SetActive(false);
-            winScreenPanel.SetActive(true);
-
+            int randomIndex = Random.Range(0, i + 1);
+            string temp = sceneNames[i];
+            sceneNames[i] = sceneNames[randomIndex];
+            sceneNames[randomIndex] = temp;
         }
     }
+
+    private void LoadNextScene()
+    {
+        if (currentIndex < sceneNames.Count)
+        {
+            SceneManager.LoadScene(sceneNames[currentIndex]);
+            currentIndex++;
+        }
+        else
+        {
+            Debug.Log("All scenes have been played.");
+            // Optionally handle what happens when all scenes have been played
+        }
+    }
+
+    // You can call this method from FemiGameManager or any other script to move to the next scene
+    public void MoveToNextScene()
+    {
+        LoadNextScene();
+    }
+
 }
