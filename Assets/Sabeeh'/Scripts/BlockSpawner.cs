@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+namespace CyberTech.Dodge { 
 
 public class BlockSpawner : MonoBehaviour
 {
@@ -22,4 +23,5 @@ public class BlockSpawner : MonoBehaviour
             block.transform.position = new Vector3(block.transform.position.x, block.transform.position.y, 0);
         }
     }
+}
 }

@@ -1,29 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BlockDetector : MonoBehaviour
+namespace CyberTech.Dodge
 {
-    public GameManager gameManager;
-    // Start is called before the first frame update
-    void Start()
+    public class BlockDetector : MonoBehaviour
     {
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "block")
+        public GameManager gameManager;
+        // Start is called before the first frame update
+        void Start()
         {
-            gameManager.AddScore();
-            Destroy(collision.gameObject);
+
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "block")
+            {
+                gameManager.AddScore();
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
