@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antivirusPrefab: {fileID: 7015865757518909546, guid: cf264e528e2198c4dabbc9b4a1e83475, type: 3}
   spawnPoint: {fileID: 9190043892744876384, guid: cf264e528e2198c4dabbc9b4a1e83475, type: 3}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 846232561}
   gameOverScreen: {fileID: 1107547511}
   gameWonScreen: {fileID: 1292011387}
 --- !u!4 &71679995
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 846232562}
   - component: {fileID: 846232561}
   m_Layer: 5
-  m_Name: ScoreCount
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -50}
+  m_AnchoredPosition: {x: 120, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846232561
