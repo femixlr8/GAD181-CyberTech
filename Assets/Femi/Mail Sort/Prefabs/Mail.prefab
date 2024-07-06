@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mailPrefab: {fileID: 682156869588864389}
   mailRedPrefab: {fileID: 5324372572575286047, guid: aee4731fa4826fc438c5e6707a11394f, type: 3}
-  mailSpawnPoint: {fileID: 0}
+  mailSpawnPoint: {fileID: 1251396973186162621}
   folder: {fileID: 0}
   folderRed: {fileID: 0}
   uiCounter: {fileID: 0}
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01b09bffe5075e459d4ab65f5f84db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &9074311250712286847
 BoxCollider2D:
   m_ObjectHideFlags: 0

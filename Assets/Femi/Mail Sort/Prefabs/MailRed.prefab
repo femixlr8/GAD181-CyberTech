@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4a29fa8caa2ec46918bca9f17b34ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mailPrefab: {fileID: 4911545934492332385, guid: cc099693cda2f1e44a02ea19332d3e87, type: 3}
-  mailRedPrefab: {fileID: 0}
+  mailPrefab: {fileID: 682156869588864389, guid: 85a0626d3f8d56545a2305c280be8919, type: 3}
+  mailRedPrefab: {fileID: 5324372572575286047}
   mailSpawnPoint: {fileID: 7422404665356306485}
-  folder: {fileID: 0}
-  folderRed: {fileID: 0}
-  uiCounter: {fileID: 0}
+  folder: {fileID: 6440481600520924000, guid: 13c7887393c4d5e4eaeb00dba4ac2db2, type: 3}
+  folderRed: {fileID: 7600734534328629821, guid: 4b6d2eb41fe8d8c4cbaaf7bb25629473, type: 3}
+  uiCounter: {fileID: 7984407955096408510, guid: c600bcf53891f4746ae5bf16f84daa39, type: 3}
 --- !u!114 &7223503805569468385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01b09bffe5075e459d4ab65f5f84db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &7971170893231355517
 BoxCollider2D:
   m_ObjectHideFlags: 0
