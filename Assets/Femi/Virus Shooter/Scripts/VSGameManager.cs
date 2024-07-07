@@ -16,6 +16,7 @@ public class VSGameManager : MonoBehaviour
 
     private int currentScore = 0;
     private int virusCount = 0;
+    private int virusesDestroyed = 0;
 
     void Awake()
     {
@@ -54,6 +55,8 @@ public class VSGameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         currentScore += amount;
+        virusesDestroyed++;
+        Debug.Log("Score: " + currentScore);
         UpdateScoreText();
         if (currentScore >= scoreToWin)
         {
@@ -72,9 +75,9 @@ public class VSGameManager : MonoBehaviour
         gameWonScreen.SetActive(true);
     }
 
-    void CheckGameOver()
+    public void CheckGameOver()
     {
-        if (currentScore < scoreToWin)
+        if (virusesDestroyed + virusCount >= maxViruses && currentScore < scoreToWin)
         {
             gameOverScreen.SetActive(true);
         }

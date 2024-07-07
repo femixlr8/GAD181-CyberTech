@@ -8,9 +8,10 @@ public class VSVirusMovement : MonoBehaviour
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-        if (transform.position.x > Camera.main.orthographicSize * Camera.main.aspect)
+        if (transform.position.x > Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x)
         {
             Destroy(gameObject);
+            VSGameManager.instance.CheckGameOver(); // Check game over when a virus escapes
         }
     }
 }

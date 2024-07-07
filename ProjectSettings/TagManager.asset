@@ -8,6 +8,7 @@ TagManager:
   - block
   - Mail
   - MailRed
+  - Virus
   layers:
   - Default
   - TransparentFX
