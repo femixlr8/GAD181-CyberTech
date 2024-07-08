@@ -7,9 +7,9 @@ public class VSGameManager : MonoBehaviour
 
     public GameObject virusPrefab;
     public Transform spawnPoint;
-    public float spawnInterval = 1.5f;
+    public float spawnInterval = 2f;
     public int scoreToWin = 10;
-    public int maxViruses = 45;
+    public int maxViruses = 25;
     public TextMeshProUGUI scoreText;
     public GameObject gameOverScreen;
     public GameObject gameWonScreen;
@@ -34,7 +34,14 @@ public class VSGameManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false); // Hide game over screen
         gameWonScreen.SetActive(false); // Hide game won screen
-        InvokeRepeating(nameof(SpawnVirus), 1f, spawnInterval);
+        if (spawnPoint != null)
+        {
+            InvokeRepeating(nameof(SpawnVirus), 1f, spawnInterval);
+        }
+        else
+        {
+            Debug.LogError("Spawn point is missing.");
+        }
         UpdateScoreText();
     }
 
@@ -42,8 +49,17 @@ public class VSGameManager : MonoBehaviour
     {
         if (virusCount < maxViruses)
         {
-            Instantiate(virusPrefab, spawnPoint.position, Quaternion.identity);
-            virusCount++;
+            if (spawnPoint != null)
+            {
+                Instantiate(virusPrefab, spawnPoint.position, Quaternion.identity);
+                virusCount++;
+                Debug.Log("Virus spawned. Total count: " + virusCount); // Debug log
+            }
+            else
+            {
+                CancelInvoke(nameof(SpawnVirus));
+                Debug.LogError("Spawn point is missing.");
+            }
         }
         else
         {
@@ -56,7 +72,8 @@ public class VSGameManager : MonoBehaviour
     {
         currentScore += amount;
         virusesDestroyed++;
-        Debug.Log("Score: " + currentScore);
+        virusCount--; // Reduce virus count when one is destroyed
+        Debug.Log("Score: " + currentScore + ", Viruses Destroyed: " + virusesDestroyed); // Debug log
         UpdateScoreText();
         if (currentScore >= scoreToWin)
         {
@@ -79,6 +96,7 @@ public class VSGameManager : MonoBehaviour
     {
         if (virusesDestroyed + virusCount >= maxViruses && currentScore < scoreToWin)
         {
+            CancelInvoke(nameof(SpawnVirus));
             gameOverScreen.SetActive(true);
         }
     }
