@@ -9,6 +9,7 @@ TagManager:
   - Mail
   - MailRed
   - Virus
+  - RedIcon
   layers:
   - Default
   - TransparentFX
