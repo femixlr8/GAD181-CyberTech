@@ -1,91 +1,107 @@
 using UnityEngine;
-using System.Collections;
 
 public class MailManager : MonoBehaviour
 {
-    public GameObject mailPrefab;
-    public GameObject mailRedPrefab;
-    public Transform mailSpawnPoint;
-    public Transform folder;
-    public Transform folderRed;
-    public UICounter uiCounter;
+    public GameObject normalMailPrefab;
+    public GameObject redMailPrefab;
+    public Transform spawnPoint;
+    public AudioSource wrongDropSound;
+    public GameObject gameWonScreen;
+    public GameObject gameOverScreen;
+    public float spawnInterval = 1.5f;
+    public bool IsGameOver { get { return isGameOver; } }
 
-    private GameObject currentMail;
-    private bool isSpawningMail = false;
+    private int normalMailCounter = 0;
+    private int totalMailCounter = 0;
+    private int wrongTurns = 0;
+    private bool isGameOver = false;
+
+    private GameObject draggingMail; // Reference to currently dragged mail object
 
     void Start()
     {
-        SpawnMail();
+        InvokeRepeating("SpawnMail", 0f, spawnInterval);
     }
 
     void SpawnMail()
     {
-        if (currentMail == null && !isSpawningMail)
+        if (isGameOver || draggingMail != null)
         {
-            isSpawningMail = true;
-            int randomValue = Random.Range(0, 2); // Generate a random integer value 0 or 1
-            Debug.Log("Random Value: " + randomValue); // Debug log to check the random value
+            return; // Wait until current mail is sorted or discarded
+        }
 
-            Vector3 spawnPosition = mailSpawnPoint.position; // Ensure mail spawns at the correct position
-            spawnPosition.z = 0f; // Ensure z-coordinate is zero
+        GameObject mailPrefab = Random.value > 0.5f ? normalMailPrefab : redMailPrefab;
+        GameObject mail = Instantiate(mailPrefab, spawnPoint.position, Quaternion.identity);
+        mail.GetComponent<Mail>().Initialize(this);
 
-            if (randomValue == 0)
+        // Set draggingMail to the newly spawned mail object
+        draggingMail = mail;
+    }
+
+    public void SetDraggingMail(GameObject mail)
+    {
+        draggingMail = mail;
+    }
+
+    public void SortMail(bool isNormalMail)
+    {
+        if (draggingMail != null)
+        {
+            if (isNormalMail)
             {
-                currentMail = Instantiate(mailPrefab, spawnPosition, Quaternion.identity);
-                Debug.Log("Spawning Normal Mail");
+                IncrementNormalMailCounter();
             }
-            else
-            {
-                currentMail = Instantiate(mailRedPrefab, spawnPosition, Quaternion.identity);
-                Debug.Log("Spawning Red Mail");
-            }
+            IncrementTotalMailCounter();
 
-            Mail mailComponent = currentMail.GetComponent<Mail>();
-            mailComponent.OnMailDropped += HandleMailSorting;
+            Destroy(draggingMail); // Destroy the sorted mail object
+            draggingMail = null; // Reset draggingMail reference
         }
     }
 
-    void HandleMailSorting(GameObject mail)
+    public void WrongDrop()
     {
-        Debug.Log("Handling mail sorting...");
-        Collider2D mailCollider = mail.GetComponent<Collider2D>();
+        if (draggingMail != null)
+        {
+            wrongTurns++;
+            wrongDropSound.Play();
+            Debug.Log($"Wrong Turns: {wrongTurns}");
 
-        if (mailCollider.bounds.Intersects(folder.GetComponent<Collider2D>().bounds))
-        {
-            Debug.Log("Mail intersects normal folder.");
-            if (mail.CompareTag("Mail"))
+            if (wrongTurns >= 3)
             {
-                uiCounter.IncrementNormalMail();
-                Debug.Log("Normal mail count incremented.");
+                GameOver();
             }
-            uiCounter.IncrementTotalMail();
-            Debug.Log("Total mail count incremented.");
-            Destroy(mail);
-            currentMail = null; // Set currentMail to null to allow new mail to spawn
-            StartCoroutine(WaitAndSpawnNewMail());
-        }
-        else if (mailCollider.bounds.Intersects(folderRed.GetComponent<Collider2D>().bounds))
-        {
-            Debug.Log("Mail intersects red folder.");
-            uiCounter.IncrementTotalMail();
-            Debug.Log("Total mail count incremented.");
-            Destroy(mail);
-            currentMail = null; // Set currentMail to null to allow new mail to spawn
-            StartCoroutine(WaitAndSpawnNewMail());
-        }
-        else
-        {
-            Debug.Log("Mail not dropped on any folder, returning to start position.");
-            // If not dropped on a folder, return the mail to the starting position
-            mail.transform.position = mail.GetComponent<Mail>().startPosition;
         }
     }
 
-    IEnumerator WaitAndSpawnNewMail()
+    public void IncrementNormalMailCounter()
     {
-        yield return new WaitForSeconds(1.5f);
-        isSpawningMail = false;
-        SpawnMail();
+        normalMailCounter++;
+        totalMailCounter++;
+        Debug.Log($"Normal Mail Collected: {normalMailCounter}, Total Mail Collected: {totalMailCounter}");
+
+        if (normalMailCounter >= 15)
+        {
+            WinGame();
+        }
+    }
+
+    public void IncrementTotalMailCounter()
+    {
+        totalMailCounter++;
+        Debug.Log($"Total Mail Collected: {totalMailCounter}");
+    }
+
+    void GameOver()
+    {
+        isGameOver = true;
+        gameOverScreen.SetActive(true);
+        CancelInvoke("SpawnMail");
+    }
+
+    void WinGame()
+    {
+        isGameOver = true;
+        gameWonScreen.SetActive(true);
+        CancelInvoke("SpawnMail");
     }
 }
-

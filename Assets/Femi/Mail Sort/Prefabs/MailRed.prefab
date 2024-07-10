@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7422404665356306485}
   - component: {fileID: 7436331906407541178}
-  - component: {fileID: 6581261207321755405}
   - component: {fileID: 7223503805569468385}
   - component: {fileID: 7971170893231355517}
+  - component: {fileID: 1529058675697176810}
   m_Layer: 0
   m_Name: MailRed
   m_TagString: MailRed
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7267470660389514631, guid: ec01f83c10ae4e843a4de49d97d98a33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -89,24 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6581261207321755405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5324372572575286047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4a29fa8caa2ec46918bca9f17b34ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mailPrefab: {fileID: 682156869588864389, guid: 85a0626d3f8d56545a2305c280be8919, type: 3}
-  mailRedPrefab: {fileID: 5324372572575286047}
-  mailSpawnPoint: {fileID: 7422404665356306485}
-  folder: {fileID: 6440481600520924000, guid: 13c7887393c4d5e4eaeb00dba4ac2db2, type: 3}
-  folderRed: {fileID: 7600734534328629821, guid: 4b6d2eb41fe8d8c4cbaaf7bb25629473, type: 3}
-  uiCounter: {fileID: 7984407955096408510, guid: c600bcf53891f4746ae5bf16f84daa39, type: 3}
 --- !u!114 &7223503805569468385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01b09bffe5075e459d4ab65f5f84db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &7971170893231355517
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +147,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 9.62, y: 4.82}
   m_EdgeRadius: 0
+--- !u!50 &1529058675697176810
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324372572575286047}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
