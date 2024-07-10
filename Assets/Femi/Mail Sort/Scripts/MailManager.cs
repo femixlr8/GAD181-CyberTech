@@ -20,22 +20,7 @@ public class MailManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnMail", 0f, spawnInterval);
-    }
-
-    void SpawnMail()
-    {
-        if (isGameOver || draggingMail != null)
-        {
-            return; // Wait until current mail is sorted or discarded
-        }
-
-        GameObject mailPrefab = Random.value > 0.5f ? normalMailPrefab : redMailPrefab;
-        GameObject mail = Instantiate(mailPrefab, spawnPoint.position, Quaternion.identity);
-        mail.GetComponent<Mail>().Initialize(this);
-
-        // Set draggingMail to the newly spawned mail object
-        draggingMail = mail;
+        SpawnMail();
     }
 
     public void SetDraggingMail(GameObject mail)
@@ -43,33 +28,38 @@ public class MailManager : MonoBehaviour
         draggingMail = mail;
     }
 
-    public void SortMail(bool isNormalMail)
+    public void SortMail(bool isCorrect, GameObject mail)
     {
-        if (draggingMail != null)
+        if (!isGameOver)
         {
-            if (isNormalMail)
+            if (isCorrect)
             {
-                IncrementNormalMailCounter();
+                if (mail.CompareTag("Mail"))
+                {
+                    IncrementNormalMailCounter();
+                }
+                IncrementTotalMailCounter();
             }
-            IncrementTotalMailCounter();
+            else
+            {
+                WrongDrop();
+            }
 
-            Destroy(draggingMail); // Destroy the sorted mail object
+            Destroy(mail); // Destroy the sorted mail object
             draggingMail = null; // Reset draggingMail reference
+            Invoke("SpawnMail", 1.5f); // Spawn the next mail after 1.5 seconds
         }
     }
 
     public void WrongDrop()
     {
-        if (draggingMail != null)
-        {
-            wrongTurns++;
-            wrongDropSound.Play();
-            Debug.Log($"Wrong Turns: {wrongTurns}");
+        wrongTurns++;
+        wrongDropSound.Play();
+        Debug.Log($"Wrong Turns: {wrongTurns}");
 
-            if (wrongTurns >= 3)
-            {
-                GameOver();
-            }
+        if (wrongTurns >= 3)
+        {
+            GameOver();
         }
     }
 
@@ -95,13 +85,20 @@ public class MailManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverScreen.SetActive(true);
-        CancelInvoke("SpawnMail");
     }
 
     void WinGame()
     {
         isGameOver = true;
         gameWonScreen.SetActive(true);
-        CancelInvoke("SpawnMail");
+    }
+
+    void SpawnMail()
+    {
+        if (!isGameOver)
+        {
+            GameObject mailPrefab = Random.Range(0, 2) == 0 ? normalMailPrefab : redMailPrefab;
+            Instantiate(mailPrefab, spawnPoint.position, Quaternion.identity);
+        }
     }
 }

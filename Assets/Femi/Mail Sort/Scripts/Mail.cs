@@ -22,17 +22,20 @@ public class Mail : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Mail") && mailManager != null)
+        if (mailManager != null)
         {
-            mailManager.SortMail(true); // Correct sorting for normal mail
-        }
-        else if (other.CompareTag("MailRed") && mailManager != null)
-        {
-            mailManager.SortMail(false); // Correct sorting for red mail
-        }
-        else
-        {
-            mailManager.WrongDrop(); // Incorrect sorting
+            if (gameObject.CompareTag("Mail") && other.CompareTag("NormalFolder"))
+            {
+                mailManager.SortMail(true, this.gameObject);
+            }
+            else if (gameObject.CompareTag("MailRed") && other.CompareTag("RedFolder"))
+            {
+                mailManager.SortMail(true, this.gameObject);
+            }
+            else
+            {
+                mailManager.SortMail(false, this.gameObject);
+            }
         }
     }
 
@@ -62,6 +65,11 @@ public class Mail : MonoBehaviour
 
     void Update()
     {
+        if (mailManager == null)
+        {
+            mailManager = FindObjectOfType<MailManager>();
+        }
+
         // Handle mail movement if dragging
         if (Input.GetMouseButton(0) && !mailManager.IsGameOver)
         {
