@@ -8,6 +8,8 @@ TagManager:
   - block
   - Mail
   - MailRed
+  - NormalFolder
+  - RedFolder
   layers:
   - Default
   - TransparentFX
