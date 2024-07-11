@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipEnemyAI : MonoBehaviour
 {
     public float speed = 3f;
+    private float downMove = 1f;
     void Start()
     {
         
@@ -25,6 +26,14 @@ public class ShipEnemyAI : MonoBehaviour
         if (collision.gameObject.tag ==("bary"))
         {
             speed *= -1;
+            MoveDown();
         }
+    }
+
+    private void MoveDown()
+    {
+        Vector2 downmovement = new Vector2(0, -downMove);
+
+        transform.Translate(downmovement);
     }
 }
