@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipHealthPoints : MonoBehaviour
 {
-    private int healthPoint = 1;
+    
+    private int healthPoint = 3;
+
+    //UI and Audio
     private AudioSource audioExplosion;
+    public Image[] livesUI;
 
     void Start()
     {
@@ -19,6 +24,17 @@ public class ShipHealthPoints : MonoBehaviour
             Destroy(collision.collider.gameObject);
 
             healthPoint -= 1;
+            
+           for (int i = 0; i < livesUI.Length; i++)
+                if(i < healthPoint)
+                {
+                    livesUI[i].enabled = true;
+                }
+                else
+                {
+                    livesUI[i].enabled = false;
+                }
+
 
             if (healthPoint <= 0)
             {
