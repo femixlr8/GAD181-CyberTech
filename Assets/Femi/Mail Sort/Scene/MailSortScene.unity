@@ -1192,7 +1192,7 @@ MonoBehaviour:
   wrongDropSound: {fileID: 1737505365}
   gameWonScreen: {fileID: 1495376221}
   gameOverScreen: {fileID: 1322324429}
-  spawnInterval: 1
+  uiCounter: {fileID: 1057317561}
 --- !u!4 &1898071077
 Transform:
   m_ObjectHideFlags: 0
@@ -1352,6 +1352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5681929155509263273, guid: 13c7887393c4d5e4eaeb00dba4ac2db2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6004962634835997699, guid: 13c7887393c4d5e4eaeb00dba4ac2db2, type: 3}
       propertyPath: m_Name
       value: NormalFolder
@@ -1413,6 +1417,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 806562423749128409, guid: 4b6d2eb41fe8d8c4cbaaf7bb25629473, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5286231303312205275, guid: 4b6d2eb41fe8d8c4cbaaf7bb25629473, type: 3}
       propertyPath: m_Name
       value: RedFolder

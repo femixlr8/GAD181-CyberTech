@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class MailManager : MonoBehaviour
 {
@@ -8,15 +9,13 @@ public class MailManager : MonoBehaviour
     public AudioSource wrongDropSound;
     public GameObject gameWonScreen;
     public GameObject gameOverScreen;
-    public float spawnInterval = 1.5f;
-    public bool IsGameOver { get { return isGameOver; } }
+    public UICounter uiCounter;
 
-    private int normalMailCounter = 0;
-    private int totalMailCounter = 0;
-    private int wrongTurns = 0;
+    private GameObject draggingMail;
+    private int wrongTurnCounter = 0;
     private bool isGameOver = false;
 
-    private GameObject draggingMail; // Reference to currently dragged mail object
+    public bool IsGameOver => isGameOver;
 
     void Start()
     {
@@ -28,77 +27,48 @@ public class MailManager : MonoBehaviour
         draggingMail = mail;
     }
 
-    public void SortMail(bool isCorrect, GameObject mail)
+    public void SpawnMail()
     {
         if (!isGameOver)
         {
-            if (isCorrect)
-            {
-                if (mail.CompareTag("Mail"))
-                {
-                    IncrementNormalMailCounter();
-                }
-                IncrementTotalMailCounter();
-            }
-            else
-            {
-                WrongDrop();
-            }
+            GameObject mailPrefab = Random.value < 0.5f ? normalMailPrefab : redMailPrefab;
+            GameObject mail = Instantiate(mailPrefab, spawnPoint.position, Quaternion.identity);
+            mail.GetComponent<Mail>().Initialize(this);
+        }
+    }
 
-            Destroy(mail); // Destroy the sorted mail object
-            draggingMail = null; // Reset draggingMail reference
-            Invoke("SpawnMail", 1.5f); // Spawn the next mail after 1.5 seconds
+    public void SortMail(bool isCorrect, GameObject mail)
+    {
+        if (isCorrect)
+        {
+            if (mail.CompareTag("Mail"))
+            {
+                uiCounter.IncrementNormalMail();
+            }
+            uiCounter.IncrementTotalMail();
+            Destroy(mail);
+            SpawnMail();
+
+            if (uiCounter.normalMailCount >= 15)
+            {
+                isGameOver = true;
+                gameWonScreen.SetActive(true);
+            }
+        }
+        else
+        {
+            WrongDrop();
         }
     }
 
     public void WrongDrop()
     {
-        wrongTurns++;
         wrongDropSound.Play();
-        Debug.Log($"Wrong Turns: {wrongTurns}");
-
-        if (wrongTurns >= 3)
+        wrongTurnCounter++;
+        if (wrongTurnCounter >= 3)
         {
-            GameOver();
-        }
-    }
-
-    public void IncrementNormalMailCounter()
-    {
-        normalMailCounter++;
-        totalMailCounter++;
-        Debug.Log($"Normal Mail Collected: {normalMailCounter}, Total Mail Collected: {totalMailCounter}");
-
-        if (normalMailCounter >= 15)
-        {
-            WinGame();
-        }
-    }
-
-    public void IncrementTotalMailCounter()
-    {
-        totalMailCounter++;
-        Debug.Log($"Total Mail Collected: {totalMailCounter}");
-    }
-
-    void GameOver()
-    {
-        isGameOver = true;
-        gameOverScreen.SetActive(true);
-    }
-
-    void WinGame()
-    {
-        isGameOver = true;
-        gameWonScreen.SetActive(true);
-    }
-
-    void SpawnMail()
-    {
-        if (!isGameOver)
-        {
-            GameObject mailPrefab = Random.Range(0, 2) == 0 ? normalMailPrefab : redMailPrefab;
-            Instantiate(mailPrefab, spawnPoint.position, Quaternion.identity);
+            isGameOver = true;
+            gameOverScreen.SetActive(true);
         }
     }
 }
