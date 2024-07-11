@@ -10,6 +10,8 @@ TagManager:
   - MailRed
   - Virus
   - RedIcon
+  - bary
+  - ship
   layers:
   - Default
   - TransparentFX
