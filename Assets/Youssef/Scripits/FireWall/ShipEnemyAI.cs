@@ -8,7 +8,7 @@ public class ShipEnemyAI : MonoBehaviour
     private float downMove = 1f;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ShipEnemyAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //since the ships will go right forever, they will hit the boundarie and then get * by -1 to chnage direction to left and so on
-        if (collision.gameObject.tag ==("bary"))
+        if (collision.gameObject.tag == ("bary"))
         {
             speed *= -1;
             MoveDown();

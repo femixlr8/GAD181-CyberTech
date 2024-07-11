@@ -14,9 +14,9 @@ public class HorizontalMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // delta time to not move 60 frames per sec
-        Vector2 movement =Vector2.right * horizontalInput * playerSpeed * Time.deltaTime;
+        Vector2 movement = Vector2.right * horizontalInput * playerSpeed * Time.deltaTime;
 
         transform.Translate(movement);
-     
+
     }
 }
