@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5680802998365500792}
   - component: {fileID: 8242512832322029785}
   - component: {fileID: 8046851798444177131}
-  - component: {fileID: 8556559661178285603}
+  - component: {fileID: -3193987756456456484}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: -3.65, z: 0}
-  m_LocalScale: {x: 1.57, y: 0.35, z: 1}
+  m_LocalScale: {x: 2.0406861, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,8 +129,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &8556559661178285603
-BoxCollider2D:
+--- !u!60 &-3193987756456456484
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -173,5 +173,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.151949, y: 0.080610454}
+      - {x: 0.07866287, y: 0.49959362}
+      - {x: -0.04420491, y: 0.4657641}
+      - {x: -0.09094216, y: 0.09219894}
+      - {x: -0.2879195, y: 0.41636616}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.2809274, y: 0.45818338}
+  m_UseDelaunayMesh: 0

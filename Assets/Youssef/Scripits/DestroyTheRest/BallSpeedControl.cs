@@ -12,15 +12,15 @@ public class BallSpeedControl : MonoBehaviour
 
     void Start()
     {
-         ballRb = GetComponent<Rigidbody2D>();
+        ballRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //claming the speed so the balls speed doesnt exceed to the point of the game becoming impossible to play
-        if (ballRb.velocity.magnitude > maxVel) 
-        { 
+        if (ballRb.velocity.magnitude > maxVel)
+        {
             ballRb.velocity = Vector2.ClampMagnitude(ballRb.velocity, maxVel);
         }
 
@@ -39,7 +39,15 @@ public class BallSpeedControl : MonoBehaviour
 
         /// if ball goes out of frame , it spawns in the new vector which is manual input
         /// ps. need to add live lost when it goes out of frame
+        if (transform.position.y < speedYaxis)
+        {
+            transform.position = new Vector2(0, -2);
 
+            //resest the position of the ball when it goes out of boundaries
+            ballRb.velocity = new Vector2(0, -minVel);
+
+
+        }
 
 
 
