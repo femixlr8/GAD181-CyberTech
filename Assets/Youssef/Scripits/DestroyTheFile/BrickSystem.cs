@@ -13,8 +13,18 @@ public class BrickSystem : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+
         audioSource.playOnAwake = false;
-        audioSource.clip = brickBreaking;
+
+        if(brickBreaking != null )
+        {
+            audioSource.clip = brickBreaking;
+        }
+        else
+        {
+            Debug.LogWarning("ask sumone");
+        }
+       
     }
 
     // Update is called once per frame
@@ -30,9 +40,11 @@ public class BrickSystem : MonoBehaviour
             if(brickBreaking != null) 
             {
                 audioSource.Play();
-            }
 
-            Destroy(gameObject, brickBreaking.length);
+                //destory brick after audio is finished
+                Destroy(gameObject, brickBreaking.length);
+            }
+            
         }
 
     }
