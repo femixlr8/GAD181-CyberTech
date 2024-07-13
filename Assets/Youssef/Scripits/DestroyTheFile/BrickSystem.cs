@@ -10,7 +10,7 @@ public class BrickSystem : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private LosingConditionBricks losingCond;
+    private WinConditionBricks losingCond;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class BrickSystem : MonoBehaviour
             Debug.LogWarning("ask sumone");
         }
 
-        losingCond = FindObjectOfType<LosingConditionBricks>(); 
+        losingCond = FindObjectOfType<WinConditionBricks>(); 
 
     }
 

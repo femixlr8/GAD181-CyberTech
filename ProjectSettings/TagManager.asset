@@ -12,6 +12,8 @@ TagManager:
   - RedIcon
   - bary
   - ship
+  - ball
+  - bricks
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LosingConditionBricks : MonoBehaviour
+public class WinConditionBricks : MonoBehaviour
 {
     private int totalBricks;
     private int destroyedBricks;
@@ -21,7 +21,7 @@ public class LosingConditionBricks : MonoBehaviour
 
         if (destroyedBricks >= totalBricks) 
         {
-            SceneManager.LoadScene("Destoryed BIOS");
+            SceneManager.LoadScene(3);
         }
     }
 }
