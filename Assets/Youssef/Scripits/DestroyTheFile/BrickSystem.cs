@@ -10,6 +10,8 @@ public class BrickSystem : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private LosingConditionBricks losingCond;
+
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -24,15 +26,12 @@ public class BrickSystem : MonoBehaviour
         {
             Debug.LogWarning("ask sumone");
         }
-       
+
+        losingCond = FindObjectOfType<LosingConditionBricks>(); 
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.gameObject.tag == ("ball"))
@@ -43,6 +42,12 @@ public class BrickSystem : MonoBehaviour
 
                 //destory brick after audio is finished
                 Destroy(gameObject, brickBreaking.length);
+            }
+
+            //update from losingcondition
+            if (losingCond != null)
+            {
+                losingCond.BricksDestroyed();
             }
             
         }

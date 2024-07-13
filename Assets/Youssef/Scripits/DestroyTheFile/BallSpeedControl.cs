@@ -41,7 +41,7 @@ public class BallSpeedControl : MonoBehaviour
         /// ps. need to add live lost when it goes out of frame
         if (transform.position.y < speedYaxis)
         {
-            transform.position = new Vector2(0, -2);
+            transform.position = new Vector2(0, 4);
 
             //resest the position of the ball when it goes out of boundaries
             ballRb.velocity = new Vector2(0, -minVel);
