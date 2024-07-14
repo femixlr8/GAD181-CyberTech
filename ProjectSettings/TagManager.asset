@@ -8,8 +8,8 @@ TagManager:
   - block
   - Mail
   - MailRed
-  - Virus
-  - RedIcon
+  - NormalFolder
+  - RedFolder
   layers:
   - Default
   - TransparentFX
