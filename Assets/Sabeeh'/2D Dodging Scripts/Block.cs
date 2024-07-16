@@ -10,7 +10,11 @@ public class Block : MonoBehaviour
     {
         rb= GetComponent<Rigidbody2D>();
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class GameManager : MonoBehaviour
+public class DodgingGameManager : MonoBehaviour
 {
     public int currentScore;
     public int maxScore = 7;
     public TextMeshProUGUI scoreValue;
-    public Player player;
+    public PlayerStatus player;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverScoreValue;
     public float currentTime;
@@ -32,16 +31,16 @@ public class GameManager : MonoBehaviour
         Timer();
     }
 
-    void GameOver() 
+    void GameOver()
     {
         if (player.health <= 0)
         {
-           gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
             Time.timeScale = 0;
             gameOverBackground.color = Color.red;
             gameOverText.text = "Game Over";
         }
-    }    
+    }
 
     public void Timer()
     {
@@ -49,10 +48,10 @@ public class GameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
-        else
+        else 
         {
             currentTime = 0;
-            gameOverPanel.SetActive(true );
+            gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
             Time.timeScale = 0;
@@ -61,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         timerValue.text = timerINT.ToString();
     }
-    public void AddScore ()
+    public void AddScore()
     {
         currentScore++;
     }

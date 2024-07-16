@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public float health;
+   
 
 
     private void Start()
@@ -61,11 +61,5 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Hazard")
-        {
-            health = health - 50;
-        }
-    }
+    
 }
