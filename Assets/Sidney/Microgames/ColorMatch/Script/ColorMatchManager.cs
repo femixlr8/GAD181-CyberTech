@@ -26,7 +26,7 @@ public class ColorMatchManager : MonoBehaviour
 
     void Start()
     {
-        isGameActive = false;
+        isGameActive = true;
 
         if (isGameActive)
         {

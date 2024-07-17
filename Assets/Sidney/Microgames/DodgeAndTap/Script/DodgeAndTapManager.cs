@@ -23,7 +23,7 @@ public class DodgeAndTapManager : MonoBehaviour
     {
         timer = gameDuration;
         score = 0;
-        isGameActive = true;
+        isGameActive = false;
         gameCanvas.gameObject.SetActive(isGameActive);
 
         foreach (Button btn in safeButtons)
