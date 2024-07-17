@@ -1,59 +1,61 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Mail : MonoBehaviour, IDragHandler, IEndDragHandler
+public class Mail : MonoBehaviour
 {
-    public Vector3 startPosition;
+    private MailManager mailManager;
+    private Vector3 startPosition;
     private bool isDragging = false;
-    private int originalSortingOrder;
-    private SpriteRenderer spriteRenderer;
-
-    public event System.Action<GameObject> OnMailDropped;
 
     void Start()
     {
+        mailManager = FindObjectOfType<MailManager>();
         startPosition = transform.position;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalSortingOrder = spriteRenderer.sortingOrder;
     }
 
-    void Update()
+    public void Initialize(MailManager manager)
     {
-        if (isDragging)
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Ensure the z position is zero
-            transform.position = mousePosition;
-        }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        isDragging = true;
-        spriteRenderer.sortingOrder = 10; // Bring to front
-        Debug.Log("Dragging mail...");
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        isDragging = false;
-        spriteRenderer.sortingOrder = originalSortingOrder; // Reset to original order
-        OnMailDropped?.Invoke(gameObject);
-        Debug.Log("Ended dragging mail.");
+        mailManager = manager;
+        startPosition = transform.position;
     }
 
     void OnMouseDown()
     {
-        isDragging = true;
-        spriteRenderer.sortingOrder = 10; // Bring to front
-        Debug.Log("Mouse down on mail.");
+        if (mailManager != null)
+        {
+            isDragging = true;
+            mailManager.SetDraggingMail(this.gameObject);
+        }
     }
 
     void OnMouseUp()
     {
         isDragging = false;
-        spriteRenderer.sortingOrder = originalSortingOrder; // Reset to original order
-        OnMailDropped?.Invoke(gameObject);
-        Debug.Log("Mouse up on mail.");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (mailManager != null)
+        {
+            if ((gameObject.CompareTag("Mail") && other.CompareTag("NormalFolder")) ||
+                (gameObject.CompareTag("MailRed") && other.CompareTag("RedFolder")))
+            {
+                mailManager.SortMail(true, this.gameObject);
+            }
+            else if ((gameObject.CompareTag("Mail") && other.CompareTag("RedFolder")) ||
+                     (gameObject.CompareTag("MailRed") && other.CompareTag("NormalFolder")))
+            {
+                mailManager.SortMail(false, this.gameObject);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (isDragging && !mailManager.IsGameOver)
+        {
+            Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newPosition.z = 0f;
+            transform.position = newPosition;
+        }
     }
 }

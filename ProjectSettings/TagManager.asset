@@ -9,11 +9,13 @@ TagManager:
   - Mail
   - MailRed
   - Virus
-  - RedIcon
-  - bary
   - ship
   - ball
   - bricks
+  - bary
+  - RedIcon
+  - NormalFolder
+  - RedFolder
   layers:
   - Default
   - TransparentFX
