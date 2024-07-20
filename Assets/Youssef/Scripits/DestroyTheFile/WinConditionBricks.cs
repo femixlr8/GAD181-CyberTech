@@ -21,7 +21,8 @@ public class WinConditionBricks : MonoBehaviour
 
         if (destroyedBricks >= totalBricks) 
         {
-            SceneManager.LoadScene(3);
+            // Notify MicroGameManager to load the next scene
+            MicroGameManager.Instance.LoadNextScene();
         }
     }
 }

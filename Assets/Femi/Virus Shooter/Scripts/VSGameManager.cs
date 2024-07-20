@@ -90,6 +90,9 @@ public class VSGameManager : MonoBehaviour
     {
         CancelInvoke(nameof(SpawnVirus));
         gameWonScreen.SetActive(true);
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     public void CheckGameOver()
@@ -98,6 +101,9 @@ public class VSGameManager : MonoBehaviour
         {
             CancelInvoke(nameof(SpawnVirus));
             gameOverScreen.SetActive(true);
+
+            // Notify MicroGameManager to load the next scene
+            MicroGameManager.Instance.LoadNextScene();
         }
     }
 }

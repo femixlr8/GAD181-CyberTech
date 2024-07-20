@@ -20,5 +20,32 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sidney/Main Game/Scene/Scene_05.unity
     guid: f16cad3ea5f8ffa46b0a7d0b935e6530
+  - enabled: 1
+    path: Assets/Femi/Icon Clicker/Scene/Icon Clicker Scene.unity
+    guid: e92facafb6344a547aeea4fc012d8f0a
+  - enabled: 1
+    path: Assets/Femi/Mail Sort/Scene/MailSortScene.unity
+    guid: c285bcf3629054b4196a6d05beaafc61
+  - enabled: 1
+    path: Assets/Femi/Virus Shooter/Scene/Virus Shooter Scene.unity
+    guid: 07568a98dde102e478086d4dd2b701f0
+  - enabled: 1
+    path: Assets/Youssef/MIniGameScenes/DestroyTheRest.unity
+    guid: 4135569a4b3a8c94c91c4a20bce32617
+  - enabled: 1
+    path: Assets/Youssef/MIniGameScenes/FireWallDefense.unity
+    guid: dbca5ca5a4bbbaa4f965550a3ef32aa1
+  - enabled: 1
+    path: Assets/Youssef/MIniGameScenes/MalwareAttacks.unity
+    guid: c6ccd808ea578f04788014bb1290e2f8
+  - enabled: 1
+    path: Assets/Sabeeh'/Scenes/2D Coin collector game.unity
+    guid: 44389737aadb44d459c2a97d638c816a
+  - enabled: 1
+    path: Assets/Sabeeh'/Scenes/2D Mingame.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Sabeeh'/Scenes/2D platformer.unity
+    guid: fd86c074bcb3c6e428fd3d3864208273
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
