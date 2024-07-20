@@ -119,6 +119,8 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!1 &71679993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1185,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978430538}
   m_CullTransparentMesh: 1
+>>>>>>> ReactionTime-Micro-Femi
 --- !u!1 &2028879740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1222,11 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
+<<<<<<< HEAD
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+=======
   m_BackGroundColor: {r: 0.53448915, g: 0.645283, b: 0.6059357, a: 0}
+>>>>>>> ReactionTime-Micro-Femi
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1280,7 +1287,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2028879743}
+<<<<<<< HEAD
+=======
   - {fileID: 1663154037}
   - {fileID: 1699025215}
   - {fileID: 1415292764}
   - {fileID: 71679995}
+>>>>>>> ReactionTime-Micro-Femi
