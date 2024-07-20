@@ -6,13 +6,13 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     AudioSource audioSource;
-    [SerializeField] AudioClip clip;
-    PlatformGameManager scoreManager;
+    //[SerializeField] AudioClip clip;
+   // PlatformGameManager scoreManager;
 
     // Function called at the start of the script
     void Start()
     {
-        scoreManager = FindObjectOfType<PlatformGameManager>();
+     //   scoreManager = FindObjectOfType<PlatformGameManager>();
 
         //Get the AudioSource component attached to this object
         audioSource = GetComponent<AudioSource>();
@@ -24,7 +24,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            scoreManager.AddScore();
+            // scoreManager.AddScore();
            // audioSource.PlayOneShot(clip);
             //Destroy the collided coin
             Destroy(gameObject);
