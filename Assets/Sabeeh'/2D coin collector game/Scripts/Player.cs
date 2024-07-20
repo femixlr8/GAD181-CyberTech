@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float speed = 40f;
     public float jumpStrength = 500f;
@@ -13,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-   
+
 
 
     private void Start()
@@ -30,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float x = Input.GetAxis("Horizontal");
-        Vector2 position = new Vector2(x * speed *Time.deltaTime,0);
+        Vector2 position = new Vector2(x * speed * Time.deltaTime, 0);
         rb.velocity = new Vector2(position.x, rb.velocity.y);
-        
+
     }
 
 
@@ -54,12 +52,4 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-        }
-    }
-    
 }
