@@ -16,6 +16,7 @@ TagManager:
   - RedIcon
   - NormalFolder
   - RedFolder
+  - MalwareEnemy
   layers:
   - Default
   - TransparentFX
