@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine;
 
-public class DodgeAndTapManager : MonoBehaviour
+public class MashManiaManager : MonoBehaviour
 {
     public Canvas gameCanvas;
-    public Button[] safeButtons;
-    public Button[] dangerButtons;
+    public Button mashButton;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
     public float gameDuration = 15f;
@@ -24,15 +23,7 @@ public class DodgeAndTapManager : MonoBehaviour
         isGameActive = true; // Set to true to start the game immediately
         gameCanvas.gameObject.SetActive(isGameActive);
 
-        foreach (Button btn in safeButtons)
-        {
-            btn.onClick.AddListener(() => OnSafeButtonClick(btn));
-        }
-
-        foreach (Button btn in dangerButtons)
-        {
-            btn.onClick.AddListener(() => OnDangerButtonClick(btn));
-        }
+        mashButton.onClick.AddListener(OnMashButtonClick);
 
         UpdateScoreText();
         UpdateTimer();
@@ -52,23 +43,12 @@ public class DodgeAndTapManager : MonoBehaviour
         }
     }
 
-    void OnSafeButtonClick(Button button)
+    void OnMashButtonClick()
     {
         if (isGameActive)
         {
-            score += 10;
+            score += 1;
             UpdateScoreText();
-            button.interactable = false;
-        }
-    }
-
-    void OnDangerButtonClick(Button button)
-    {
-        if (isGameActive)
-        {
-            score -= 20;
-            UpdateScoreText();
-            button.interactable = false;
         }
     }
 
@@ -88,15 +68,7 @@ public class DodgeAndTapManager : MonoBehaviour
         timerText.text = "Game Over!";
         gameCanvas.gameObject.SetActive(isGameActive);
 
-        foreach (Button btn in safeButtons)
-        {
-            btn.interactable = false;
-        }
-
-        foreach (Button btn in dangerButtons)
-        {
-            btn.interactable = false;
-        }
+        mashButton.interactable = false;
 
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();

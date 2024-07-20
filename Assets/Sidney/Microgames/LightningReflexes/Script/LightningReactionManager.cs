@@ -4,18 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DodgeAndTapManager : MonoBehaviour
+public class LightningReactionManager : MonoBehaviour
 {
     public Canvas gameCanvas;
-    public Button[] safeButtons;
-    public Button[] dangerButtons;
+    public Button[] reflexButtons;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
     public float gameDuration = 15f;
+    public float buttonLightDuration = 1f;
 
     private float timer;
     private int score;
     private bool isGameActive;
+    private Button activeButton;
 
     void Start()
     {
@@ -24,18 +25,16 @@ public class DodgeAndTapManager : MonoBehaviour
         isGameActive = true; // Set to true to start the game immediately
         gameCanvas.gameObject.SetActive(isGameActive);
 
-        foreach (Button btn in safeButtons)
+        foreach (Button btn in reflexButtons)
         {
-            btn.onClick.AddListener(() => OnSafeButtonClick(btn));
-        }
-
-        foreach (Button btn in dangerButtons)
-        {
-            btn.onClick.AddListener(() => OnDangerButtonClick(btn));
+            btn.onClick.AddListener(() => OnReflexButtonClick(btn));
         }
 
         UpdateScoreText();
         UpdateTimer();
+
+        // Start the random button flash coroutine
+        StartCoroutine(RandomButtonFlash());
     }
 
     void Update()
@@ -52,23 +51,34 @@ public class DodgeAndTapManager : MonoBehaviour
         }
     }
 
-    void OnSafeButtonClick(Button button)
+    IEnumerator RandomButtonFlash()
     {
-        if (isGameActive)
+        while (isGameActive)
         {
-            score += 10;
-            UpdateScoreText();
-            button.interactable = false;
+            // Select a random button to light up
+            int randomIndex = Random.Range(0, reflexButtons.Length);
+            activeButton = reflexButtons[randomIndex];
+
+            // Light up the button
+            activeButton.GetComponent<Image>().color = Color.yellow;
+
+            // Wait for the button light duration
+            yield return new WaitForSeconds(buttonLightDuration);
+
+            // Turn off the button light
+            activeButton.GetComponent<Image>().color = Color.white;
+
+            // Wait for a short random duration before lighting up the next button
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
         }
     }
 
-    void OnDangerButtonClick(Button button)
+    void OnReflexButtonClick(Button button)
     {
-        if (isGameActive)
+        if (isGameActive && button == activeButton)
         {
-            score -= 20;
+            score += 1;
             UpdateScoreText();
-            button.interactable = false;
         }
     }
 
@@ -88,15 +98,12 @@ public class DodgeAndTapManager : MonoBehaviour
         timerText.text = "Game Over!";
         gameCanvas.gameObject.SetActive(isGameActive);
 
-        foreach (Button btn in safeButtons)
+        foreach (Button btn in reflexButtons)
         {
             btn.interactable = false;
         }
 
-        foreach (Button btn in dangerButtons)
-        {
-            btn.interactable = false;
-        }
+        StopCoroutine(RandomButtonFlash());
 
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
