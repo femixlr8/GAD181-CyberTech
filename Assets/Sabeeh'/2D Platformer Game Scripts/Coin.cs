@@ -6,7 +6,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     AudioSource audioSource;
-   // [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip clip;
     PlatformGameManager scoreManager;
 
     // Function called at the start of the script
