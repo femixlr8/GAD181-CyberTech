@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - block
+  - Mail
+  - MailRed
+  - Virus
+  - ship
+  - ball
+  - bricks
+  - bary
+  - RedIcon
+  - NormalFolder
+  - RedFolder
+  - MalwareEnemy
   layers:
   - Default
   - TransparentFX
