@@ -6,11 +6,11 @@ public class RTGameManager : MonoBehaviour
 {
     public static RTGameManager Instance { get; private set; }
 
-    public GameObject antivirusPrefab; // Drag your Antivirus GameObject prefab here
+    public GameObject antivirusPrefab; // Drag  Antivirus GameObject prefab here
     public Transform spawnPoint; // Drag an empty GameObject as spawn point here
-    public TextMeshProUGUI scoreText; // Drag your TextMeshPro Text element here for score display
-    public GameObject gameOverScreen; // Drag your UI Panel GameObject for Game Over screen here
-    public GameObject gameWonScreen; // Drag your UI Panel GameObject for Game Won screen here
+    public TextMeshProUGUI scoreText; // Drag TextMeshPro Text element here for score display
+    public GameObject gameOverScreen; // Drag UI Panel GameObject for Game Over screen here
+    public GameObject gameWonScreen; // Drag UI Panel GameObject for Game Won screen here
 
     private int score = 0;
     private int missCount = 0;
