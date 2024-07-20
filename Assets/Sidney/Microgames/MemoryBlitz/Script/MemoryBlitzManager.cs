@@ -17,12 +17,10 @@ public class MemoryBlitzManager : MonoBehaviour
     private float timer;
     private int score;
     private bool isGameActive;
-    public bool hasPlayedBefore;
     private List<int> sequence;
     private int currentStep;
     private bool playerTurn;
 
-    // Start is called before the first frame update
     void Start()
     {
         timer = gameDuration;
@@ -43,7 +41,6 @@ public class MemoryBlitzManager : MonoBehaviour
         StartCoroutine(ShowSequence());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isGameActive)
@@ -63,10 +60,8 @@ public class MemoryBlitzManager : MonoBehaviour
         turnText.text = "Watch the sequence...";
         playerTurn = false;
 
-        // Add a new random step to the sequence
         sequence.Add(Random.Range(0, sequenceButtons.Length));
 
-        // Show the sequence to the player
         for (int i = 0; i < sequence.Count; i++)
         {
             sequenceButtons[sequence[i]].GetComponent<Image>().color = Color.yellow;
@@ -132,5 +127,8 @@ public class MemoryBlitzManager : MonoBehaviour
         {
             btn.interactable = false;
         }
+
+        // Load the next scene using MicroGameManager
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

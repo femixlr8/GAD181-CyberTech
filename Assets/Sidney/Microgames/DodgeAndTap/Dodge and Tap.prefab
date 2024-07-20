@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af70237e97d18c54fa67a3a665c0b57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCanvas: {fileID: 5244433350130310334}
   safeButtons:
   - {fileID: 4003021337722779657}
   - {fileID: 142435713852475588}

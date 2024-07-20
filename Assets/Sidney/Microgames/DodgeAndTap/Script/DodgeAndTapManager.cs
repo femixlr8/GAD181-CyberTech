@@ -16,21 +16,18 @@ public class DodgeAndTapManager : MonoBehaviour
     private float timer;
     private int score;
     private bool isGameActive;
-    public bool hasPlayedBefore;
 
-    // Start is called before the first frame update
     void Start()
     {
         timer = gameDuration;
         score = 0;
-        isGameActive = false;
+        isGameActive = true; // Set to true to start the game immediately
         gameCanvas.gameObject.SetActive(isGameActive);
 
         foreach (Button btn in safeButtons)
         {
-           btn.onClick.AddListener(() => OnSafeButtonClick(btn));
+            btn.onClick.AddListener(() => OnSafeButtonClick(btn));
         }
-
 
         foreach (Button btn in dangerButtons)
         {
@@ -39,10 +36,8 @@ public class DodgeAndTapManager : MonoBehaviour
 
         UpdateScoreText();
         UpdateTimer();
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isGameActive)
@@ -55,7 +50,6 @@ public class DodgeAndTapManager : MonoBehaviour
                 EndGame();
             }
         }
-        
     }
 
     void OnSafeButtonClick(Button button)
@@ -66,7 +60,6 @@ public class DodgeAndTapManager : MonoBehaviour
             UpdateScoreText();
             button.interactable = false;
         }
-
     }
 
     void OnDangerButtonClick(Button button)
@@ -77,19 +70,16 @@ public class DodgeAndTapManager : MonoBehaviour
             UpdateScoreText();
             button.interactable = false;
         }
-
     }
 
     void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
-
     }
 
     void UpdateTimer()
     {
         timerText.text = "Time: " + Mathf.Clamp(timer, 0, gameDuration).ToString("F2");
-
     }
 
     void EndGame()
@@ -103,11 +93,12 @@ public class DodgeAndTapManager : MonoBehaviour
             btn.interactable = false;
         }
 
-
         foreach (Button btn in dangerButtons)
         {
             btn.interactable = false;
         }
 
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

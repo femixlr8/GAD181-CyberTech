@@ -16,15 +16,13 @@ public class LightningReactionManager : MonoBehaviour
     private float timer;
     private int score;
     private bool isGameActive;
-    public bool hasPlayedBefore;
     private Button activeButton;
 
-    // Start is called before the first frame update
     void Start()
     {
         timer = gameDuration;
         score = 0;
-        isGameActive = false;
+        isGameActive = true; // Set to true to start the game immediately
         gameCanvas.gameObject.SetActive(isGameActive);
 
         foreach (Button btn in reflexButtons)
@@ -39,7 +37,6 @@ public class LightningReactionManager : MonoBehaviour
         StartCoroutine(RandomButtonFlash());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isGameActive)
@@ -107,5 +104,8 @@ public class LightningReactionManager : MonoBehaviour
         }
 
         StopCoroutine(RandomButtonFlash());
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

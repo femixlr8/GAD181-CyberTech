@@ -15,13 +15,12 @@ public class MashManiaManager : MonoBehaviour
     private float timer;
     private int score;
     private bool isGameActive;
-    public bool hasPlayedBefore;
 
     void Start()
     {
         timer = gameDuration;
         score = 0;
-        isGameActive = false;
+        isGameActive = true; // Set to true to start the game immediately
         gameCanvas.gameObject.SetActive(isGameActive);
 
         mashButton.onClick.AddListener(OnMashButtonClick);
@@ -68,6 +67,10 @@ public class MashManiaManager : MonoBehaviour
         isGameActive = false;
         timerText.text = "Game Over!";
         gameCanvas.gameObject.SetActive(isGameActive);
+
         mashButton.interactable = false;
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

@@ -26,7 +26,7 @@ public class ColorMatchManager : MonoBehaviour
 
     void Start()
     {
-        isGameActive = false;
+        isGameActive = true; // Set to true to start the game immediately
 
         if (isGameActive)
         {
@@ -109,5 +109,8 @@ public class ColorMatchManager : MonoBehaviour
 
         isGameActive = false;
         gameCanvas.gameObject.SetActive(isGameActive);
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }
