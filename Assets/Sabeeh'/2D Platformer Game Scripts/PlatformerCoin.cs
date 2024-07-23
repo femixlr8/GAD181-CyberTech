@@ -25,7 +25,7 @@ public class PlatformerCoin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             scoreManager.AddScore();
-            // audioSource.PlayOneShot(clip);
+            //audioSource.PlayOneShot(clip);
             //Destroy the collided coin
             Destroy(gameObject);
 
