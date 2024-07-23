@@ -1,16 +1,15 @@
+using CyberTech.Dodge;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class PlatfromGameManager : MonoBehaviour
+public class CoinCollectorGameManager : MonoBehaviour
 {
     public int currentScore;
     public int maxScore = 7;
     public TextMeshProUGUI scoreValue;
-    public PlayerStatus player;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverScoreValue;
     public float currentTime;
@@ -29,20 +28,10 @@ public class PlatfromGameManager : MonoBehaviour
     {
         scoreValue.text = currentScore.ToString();
         gameOverScoreValue.text = currentScore.ToString();
-        GameOver();
         Timer();
     }
 
-    void GameOver()
-    {
-        if (player.health <= 0)
-        {
-            gameOverPanel.SetActive(true);
-            Time.timeScale = 0;
-            gameOverBackground.color = Color.red;
-            gameOverText.text = "Game Over";
-        }
-    }
+    
 
     public void Timer()
     {
@@ -50,7 +39,15 @@ public class PlatfromGameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
-        else
+        else if (currentScore <= 0)
+        {
+            currentTime = 0;
+            gameOverPanel.SetActive(true);
+            gameOverBackground.color = Color.red;
+            gameOverText.text = "You Lose!";
+            Time.timeScale = 0;
+        }
+        else if (currentScore > 0)
         {
             currentTime = 0;
             gameOverPanel.SetActive(true);
@@ -67,3 +64,4 @@ public class PlatfromGameManager : MonoBehaviour
         currentScore++;
     }
 }
+
