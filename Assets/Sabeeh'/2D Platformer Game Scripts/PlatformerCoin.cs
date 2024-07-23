@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class PlatformerCoin : MonoBehaviour
 {
     AudioSource audioSource;
     [SerializeField] AudioClip clip;
-    PlatformGameManager scoreManager;
+    PlatfromGameManager scoreManager;
 
     // Function called at the start of the script
     void Start()
     {
-        scoreManager = FindObjectOfType<PlatformGameManager>();
+        scoreManager = FindObjectOfType<PlatfromGameManager>();
 
         //Get the AudioSource component attached to this object
         audioSource = GetComponent<AudioSource>();
 
     }
+    
 
     //Function to handle collision 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,12 +25,10 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             scoreManager.AddScore();
-           // audioSource.PlayOneShot(clip);
+            // audioSource.PlayOneShot(clip);
             //Destroy the collided coin
             Destroy(gameObject);
 
         }
     }
-
 }
-

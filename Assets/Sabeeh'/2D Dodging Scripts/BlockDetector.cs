@@ -5,7 +5,7 @@ namespace CyberTech.Dodge
 {
     public class BlockDetector : MonoBehaviour
     {
-        public GameManager gameManager;
+        public DodgingGameManager gameManager;
         // Start is called before the first frame update
         void Start()
         {
@@ -21,7 +21,7 @@ namespace CyberTech.Dodge
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "block")
+            if (collision.gameObject.tag == "Hazard")
             {
                 gameManager.AddScore();
                 Destroy(collision.gameObject);

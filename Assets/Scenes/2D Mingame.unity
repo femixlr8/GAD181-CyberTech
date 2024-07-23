@@ -1768,10 +1768,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1292276834}
   - component: {fileID: 1292276833}
-  - component: {fileID: 1292276832}
-  - component: {fileID: 1292276837}
   - component: {fileID: 1292276836}
   - component: {fileID: 1292276835}
+  - component: {fileID: 1292276838}
+  - component: {fileID: 1292276837}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1779,20 +1779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1292276832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292276830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3eace53a17bc3640af6bea58e49d325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  health: 3
 --- !u!212 &1292276833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1944,9 +1930,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1292276830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af27143956b4fc69a21afea18eb1a30, type: 3}
+  m_Script: {fileID: 11500000, guid: 8018341c9b8545040b49bc9e037fcc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
+--- !u!114 &1292276838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292276830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2423dd9d4417c54ea74cef4829e3bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
 --- !u!1 &1647610360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,13 +2124,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778002102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835726d7b8ba32345b743f0819766e3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6aca6298f12539142bccc940daa24fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
   maxScore: 7
   scoreValue: {fileID: 322784310}
-  player: {fileID: 1292276832}
+  player: {fileID: 1292276837}
   gameOverPanel: {fileID: 179018078}
   gameOverScoreValue: {fileID: 1647610362}
   currentTime: 0
