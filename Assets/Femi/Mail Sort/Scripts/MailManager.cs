@@ -53,6 +53,9 @@ public class MailManager : MonoBehaviour
             {
                 isGameOver = true;
                 gameWonScreen.SetActive(true);
+
+                // Notify MicroGameManager to load the next scene
+                MicroGameManager.Instance.LoadNextScene();
             }
         }
         else
@@ -69,6 +72,9 @@ public class MailManager : MonoBehaviour
         {
             isGameOver = true;
             gameOverScreen.SetActive(true);
+
+            // Notify MicroGameManager to load the next scene
+            MicroGameManager.Instance.LoadNextScene();
         }
     }
 }

@@ -68,12 +68,16 @@ public class ICGameManager : MonoBehaviour
     void GameWon()
     {
         gameWonScreen.SetActive(true);
-        Time.timeScale = 0;
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-        Time.timeScale = 0;
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

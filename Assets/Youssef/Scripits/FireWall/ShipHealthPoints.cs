@@ -43,6 +43,9 @@ public class ShipHealthPoints : MonoBehaviour
                     audioExplosion.Play();
                 }
                 Destroy(gameObject, audioExplosion.clip.length);
+
+                // Notify MicroGameManager to load the next scene
+                MicroGameManager.Instance.LoadNextScene();
             }
 
         }

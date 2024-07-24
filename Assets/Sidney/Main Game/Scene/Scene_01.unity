@@ -154,6 +154,15 @@ MonoBehaviour:
   - Scene_03
   - Scene_04
   - Scene_05
+  - Scene_05
+  - MailSortScene
+  - Virus Shooter Scene
+  - DestroyTheRest
+  - FireWallDefense
+  - MalwareAttacks
+  - 2D Coin collector game
+  - 2D Mingame
+  - 2D platformer
 --- !u!4 &135958462
 Transform:
   m_ObjectHideFlags: 0
