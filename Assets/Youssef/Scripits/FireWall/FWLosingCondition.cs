@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShipHealthPoints : MonoBehaviour
+public class FWLosingCondition : MonoBehaviour
 {
     
     private int healthPoint = 3;
