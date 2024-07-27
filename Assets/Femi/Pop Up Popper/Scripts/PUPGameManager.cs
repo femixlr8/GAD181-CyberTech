@@ -22,7 +22,7 @@ public class PUPGameManager : MonoBehaviour
         score = 0;
         UpdateScoreText();
         UpdateTimerText();
-        InvokeRepeating("SpawnPopUp", 1f, 1f);
+        InvokeRepeating("SpawnPopUp", 1f, 1f); // Spawns a pop-up every second
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class PUPGameManager : MonoBehaviour
 
             if (timer <= 0)
             {
-                EndGame(false);
+                EndGame(false); // Ends the game when the timer reaches zero
             }
         }
     }
@@ -48,7 +48,7 @@ public class PUPGameManager : MonoBehaviour
 
             if (score >= 15)
             {
-                EndGame(true);
+                EndGame(true); // Ends the game when the player reaches 15 points
             }
         }
     }
@@ -70,11 +70,11 @@ public class PUPGameManager : MonoBehaviour
 
         if (won)
         {
-            gameWonPanel.SetActive(true);
+            gameWonPanel.SetActive(true); // Display "You Won!" screen
         }
         else
         {
-            gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true); // Display "Game Over!" screen
         }
     }
 
@@ -93,8 +93,11 @@ public class PUPGameManager : MonoBehaviour
                              canvasTransform.GetComponent<RectTransform>().rect.height / 2 - rectTransform.rect.height / 2)
             );
 
-            // Add pop-up behavior script
-            newPopUp.AddComponent<PUPPopUp>();
+            // Add the pop-up behavior script only if not already present
+            if (newPopUp.GetComponent<PUPPopUp>() == null)
+            {
+                newPopUp.AddComponent<PUPPopUp>();
+            }
         }
     }
 }
