@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FWLosingCondition : MonoBehaviour
+public class ShipHealthPoints : MonoBehaviour
 {
     
-    private int healthPoint = 4;
+    private int healthPoint = 3;
 
     //UI and Audio
     private AudioSource audioExplosion;

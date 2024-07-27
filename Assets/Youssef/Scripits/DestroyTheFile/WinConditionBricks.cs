@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DTFWinningCondition : MonoBehaviour
+public class WinConditionBricks : MonoBehaviour
 {
     private int totalBricks;
     private int destroyedBricks;
