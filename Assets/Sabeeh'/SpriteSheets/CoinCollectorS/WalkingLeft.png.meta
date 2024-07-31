@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b1824e120b3a0ec4c8027a329ec64218
+guid: 90b2776ac7628d740b410798291b5d1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7156387856213119759
-    second: ZeroSprite_0
+      213: -1535948673906825851
+    second: WalkingLeft_0
+  - first:
+      213: 1332348189550758880
+    second: WalkingLeft_1
+  - first:
+      213: 1030117702665322244
+    second: WalkingLeft_2
+  - first:
+      213: 8227008933381841998
+    second: WalkingLeft_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ZeroSprite_0
+      name: WalkingLeft_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 21
-        width: 84
-        height: 84
+        x: 17
+        y: 77
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +136,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f03908cc6d8905360800000000000000
-      internalID: 7156387856213119759
+      spriteID: 5852d82a1d63faae0800000000000000
+      internalID: -1535948673906825851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 77
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebce4b8e937d7210800000000000000
+      internalID: 1332348189550758880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 13
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f3530c796bb4e00800000000000000
+      internalID: 1030117702665322244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 13
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e44a03e49053c2270800000000000000
+      internalID: 8227008933381841998
       vertices: []
       indices: 
       edges: []
@@ -143,8 +215,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ZeroSprite_0: 7156387856213119759
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b1824e120b3a0ec4c8027a329ec64218
+guid: 2bc167bde5355af4a8d1efe49794c4bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7156387856213119759
-    second: ZeroSprite_0
+      213: -6673340638922056412
+    second: Walkingright_0
+  - first:
+      213: 2416836564065702815
+    second: Walkingright_1
+  - first:
+      213: 5462202684738147723
+    second: Walkingright_2
+  - first:
+      213: 3392433876309836191
+    second: Walkingright_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ZeroSprite_0
+      name: Walkingright_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 21
-        width: 84
-        height: 84
+        x: 19
+        y: 77
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +136,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f03908cc6d8905360800000000000000
-      internalID: 7156387856213119759
+      spriteID: 42d5fd7bb088363a0800000000000000
+      internalID: -6673340638922056412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkingright_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 77
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93df41dc045a8120800000000000000
+      internalID: 2416836564065702815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkingright_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 13
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85900bd664adcb40800000000000000
+      internalID: 5462202684738147723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkingright_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 13
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f910379f2a8541f20800000000000000
+      internalID: 3392433876309836191
       vertices: []
       indices: 
       edges: []
@@ -143,8 +215,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ZeroSprite_0: 7156387856213119759
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
