@@ -16,10 +16,14 @@ public class DodgingGameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Image gameOverBackground;
     public TextMeshProUGUI timerValue;
+    AudioSource audioSource;
+    public  AudioClip audioClip;
+    bool victoryMusicPlayed;
     // Start is called before the first frame update
     void Start()
     {
         currentTime = initTime;
+        audioSource = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class DodgingGameManager : MonoBehaviour
         gameOverScoreValue.text = currentScore.ToString();
         GameOver();
         Timer();
+        CheckScore();
     }
 
     void GameOver()
@@ -55,6 +60,12 @@ public class DodgingGameManager : MonoBehaviour
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
             Time.timeScale = 0;
+            if (victoryMusicPlayed == false)
+            {
+                victoryMusicPlayed = true;
+                audioSource.PlayOneShot(audioClip, 0.1f);
+            }
+
         }
         int timerINT = (int)currentTime;
 
@@ -63,5 +74,21 @@ public class DodgingGameManager : MonoBehaviour
     public void AddScore()
     {
         currentScore++;
+    }
+    void CheckScore()
+    {
+        if (currentScore >= maxScore)
+        {
+            gameOverPanel.SetActive(true);
+            gameOverBackground.color = Color.green;
+            gameOverText.text = "You Win!";
+            Time.timeScale = 0;
+            if (victoryMusicPlayed == false)
+            {
+                victoryMusicPlayed = true;
+                audioSource.PlayOneShot(audioClip, 0.1f);
+            }
+
+        }
     }
 }

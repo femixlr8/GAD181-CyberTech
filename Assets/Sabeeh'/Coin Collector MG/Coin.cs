@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
         scoreManager = FindObjectOfType<CoinCollectorGameManager>();
 
         //Get the AudioSource component attached to this object
-        audioSource = GetComponent<AudioSource>();
+        audioSource = FindObjectOfType<AudioSource>();
 
     }
 
@@ -25,8 +25,8 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
            scoreManager.AddScore();
-           // audioSource.PlayOneShot(clip);
-            //Destroy the collided coin
+           audioSource.PlayOneShot(clip);
+           
             Destroy(gameObject);
 
         }

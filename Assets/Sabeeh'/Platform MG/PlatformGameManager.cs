@@ -18,10 +18,14 @@ public class PlatfromGameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Image gameOverBackground;
     public TextMeshProUGUI timerValue;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
+    bool victoryMusicPlayed;
     // Start is called before the first frame update
     void Start()
     {
         currentTime = initTime;
+        audioSource = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,13 @@ public class PlatfromGameManager : MonoBehaviour
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
             Time.timeScale = 0;
+            if (victoryMusicPlayed == false)
+            {
+                victoryMusicPlayed = true;
+                audioSource.PlayOneShot(audioClip, 0.1f);
+            }
+           
+           
         }
         int timerINT = (int)currentTime;
 
