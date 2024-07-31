@@ -14,7 +14,7 @@ public class PlatformerCoin : MonoBehaviour
         scoreManager = FindObjectOfType<PlatfromGameManager>();
 
         //Get the AudioSource component attached to this object
-        audioSource = GetComponent<AudioSource>();
+        audioSource = FindObjectOfType<AudioSource>();
 
     }
     
@@ -25,8 +25,8 @@ public class PlatformerCoin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             scoreManager.AddScore();
-            //audioSource.PlayOneShot(clip);
-            //Destroy the collided coin
+            audioSource.PlayOneShot(clip);
+           
             Destroy(gameObject);
 
         }

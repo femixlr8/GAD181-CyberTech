@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class CoinCollectorGameManager : MonoBehaviour
 {
     public int currentScore;
-    public int maxScore = 7;
     public TextMeshProUGUI scoreValue;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverScoreValue;
@@ -17,10 +16,16 @@ public class CoinCollectorGameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Image gameOverBackground;
     public TextMeshProUGUI timerValue;
+    public AudioClip audioClip;
+    AudioSource audioSource;
+    bool victoryMusicPlayed;
+    [SerializeField] int numberOfCoinsToCollect;
+
     // Start is called before the first frame update
     void Start()
     {
         currentTime = initTime;
+        audioSource = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +34,7 @@ public class CoinCollectorGameManager : MonoBehaviour
         scoreValue.text = currentScore.ToString();
         gameOverScoreValue.text = currentScore.ToString();
         Timer();
+        CheckCoins();
     }
 
     
@@ -54,6 +60,11 @@ public class CoinCollectorGameManager : MonoBehaviour
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
             Time.timeScale = 0;
+            if (victoryMusicPlayed == false)
+            {
+                victoryMusicPlayed = true;
+                audioSource.PlayOneShot(audioClip, 0.1f);
+            }
         }
         int timerINT = (int)currentTime;
 
@@ -62,6 +73,21 @@ public class CoinCollectorGameManager : MonoBehaviour
     public void AddScore()
     {
         currentScore++;
+    }
+    void CheckCoins()
+    {
+        if (currentScore >= numberOfCoinsToCollect)
+        {
+            gameOverPanel.SetActive(true);
+            gameOverBackground.color = Color.green;
+            gameOverText.text = "You Win!";
+            Time.timeScale = 0;
+            if (victoryMusicPlayed == false)
+            {
+                victoryMusicPlayed = true;
+                audioSource.PlayOneShot(audioClip, 0.1f);
+            }
+        }
     }
 }
 

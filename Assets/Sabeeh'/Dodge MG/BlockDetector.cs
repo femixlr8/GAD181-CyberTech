@@ -6,10 +6,13 @@ namespace CyberTech.Dodge
     public class BlockDetector : MonoBehaviour
     {
         public DodgingGameManager gameManager;
+        AudioSource audioSource;
+        public AudioClip clip;
+        
         // Start is called before the first frame update
         void Start()
         {
-
+            audioSource = FindObjectOfType<AudioSource>();
 
         }
 
@@ -24,7 +27,9 @@ namespace CyberTech.Dodge
             if (collision.gameObject.tag == "Hazard")
             {
                 gameManager.AddScore();
+                audioSource.PlayOneShot(clip,0.2f);
                 Destroy(collision.gameObject);
+
             }
         }
     }
