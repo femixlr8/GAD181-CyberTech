@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 338490031}
   - component: {fileID: 338490030}
   m_Layer: 0
-  m_Name: New Piskel-5.png_0 (1)
+  m_Name: ErrorBar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 383862802}
   - component: {fileID: 383862801}
   m_Layer: 0
-  m_Name: New Piskel-5.png_0
+  m_Name: ErrorBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 496248859}
   - component: {fileID: 496248858}
   m_Layer: 0
-  m_Name: New Piskel-5.png_0 (2)
+  m_Name: ErrorBar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 858656815}
   - component: {fileID: 858656814}
   m_Layer: 0
-  m_Name: New Piskel-5.png_0 (4)
+  m_Name: ErrorBar (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2863,7 +2863,7 @@ GameObject:
   - component: {fileID: 1483507117}
   - component: {fileID: 1483507116}
   m_Layer: 0
-  m_Name: New Piskel-5.png_0 (3)
+  m_Name: ErrorBar (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

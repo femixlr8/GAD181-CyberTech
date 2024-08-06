@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0f3d58641aaf96a459b764f320bd75f3
+guid: 53ba33cd88b54fe45b83fd6dcb25e097
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3856220883215382123
-    second: BacKgroundPLat_0
+      213: 3493201506139599894
+    second: DTF ball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.4985333, y: 0.50234663}
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,22 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BacKgroundPLat_0
+      name: DTF ball_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 33
+        y: 7
+        width: 66
+        height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5990180b983fb7ac0800000000000000
-      internalID: -3856220883215382123
+      spriteID: 6147f4613485a7030800000000000000
+      internalID: 3493201506139599894
       vertices: []
       indices: 
       edges: []
@@ -136,15 +136,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: f5960d91b1993db45bb9e8cf30a1dbfe
+    internalID: 1395584506
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BacKgroundPLat_0: -3856220883215382123
+      DTF ball_0: 3493201506139599894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
