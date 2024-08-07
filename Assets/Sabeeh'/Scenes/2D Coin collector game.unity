@@ -152,9 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5aaeef6152c9564d876fe57043c6f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1200
-  jumpStrength: 600
+  speed: 10
+  jumpStrength: 1
   isGrounded: 0
+  jumpHeight: 6
+  timeToJump: 0.4
 --- !u!212 &8285709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -304,11 +306,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8285707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8018341c9b8545040b49bc9e037fcc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: {fileID: 0}
   health: 5
 --- !u!1 &219033358 stripped
 GameObject:
@@ -3086,7 +3089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1631207259
 RectTransform:
   m_ObjectHideFlags: 0
