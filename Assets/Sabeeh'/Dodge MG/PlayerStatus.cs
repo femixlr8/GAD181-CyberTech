@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public TextMeshProUGUI healthValue;
   
 
     public float health;
@@ -17,6 +19,15 @@ public class PlayerStatus : MonoBehaviour
             health--;
             
         }
+    }
+    public void Update()
+    {
+        UpdateTextHealth();
+    }
+
+    private void UpdateTextHealth()
+    {
+       healthValue.text = health.ToString();
     }
 }
 
