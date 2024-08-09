@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8018341c9b8545040b49bc9e037fcc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: {fileID: 0}
+  healthValue: {fileID: 0}
   health: 5
 --- !u!1 &219033358 stripped
 GameObject:
