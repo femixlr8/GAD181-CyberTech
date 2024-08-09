@@ -171,6 +171,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lighting Reaction
       objectReference: {fileID: 0}
+    - target: {fileID: 8957958890744303464, guid: 081ad4f84a58d0646aba0e62b0bb925f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957958890744303464, guid: 081ad4f84a58d0646aba0e62b0bb925f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957958890744303464, guid: 081ad4f84a58d0646aba0e62b0bb925f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

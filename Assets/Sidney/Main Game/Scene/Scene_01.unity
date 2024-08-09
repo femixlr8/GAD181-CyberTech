@@ -157,6 +157,9 @@ MonoBehaviour:
   - Scene_05
   - MailSortScene
   - Virus Shooter Scene
+  - PopUpPopper Scene
+  - BinaryCodeScene
+  - SecurityCodeClicker Scene
   - DestroyTheRest
   - FireWallDefense
   - MalwareAttacks
@@ -285,6 +288,18 @@ PrefabInstance:
     - target: {fileID: 4020771197871383910, guid: 020a511357285f44db7cf02c4533ba7d, type: 3}
       propertyPath: isGameActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813027990083941391, guid: 020a511357285f44db7cf02c4533ba7d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813027990083941391, guid: 020a511357285f44db7cf02c4533ba7d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813027990083941391, guid: 020a511357285f44db7cf02c4533ba7d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7268372942222400807, guid: 020a511357285f44db7cf02c4533ba7d, type: 3}
       propertyPath: m_LocalPosition.x

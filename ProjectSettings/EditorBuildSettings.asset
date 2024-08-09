@@ -30,6 +30,15 @@ EditorBuildSettings:
     path: Assets/Femi/Virus Shooter/Scene/Virus Shooter Scene.unity
     guid: 07568a98dde102e478086d4dd2b701f0
   - enabled: 1
+    path: Assets/Femi/Pop Up Popper/Scene/PopUpPopper Scene.unity
+    guid: 8727a35ff26fa0c40a0121c669d02614
+  - enabled: 1
+    path: Assets/Femi/Binary Code/Scene/BinaryCodeScene.unity
+    guid: 323c041a586fd7b4c9c30c88312a281f
+  - enabled: 1
+    path: Assets/Femi/Security Code Clicker/Scene/SecurityCodeClicker Scene.unity
+    guid: 207a048875a5ddd4c8b09add7ec7a44c
+  - enabled: 1
     path: Assets/Youssef/MIniGameScenes/DestroyTheRest.unity
     guid: 4135569a4b3a8c94c91c4a20bce32617
   - enabled: 1
