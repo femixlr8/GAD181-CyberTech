@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: cb1b5e5aa1bd78243bf90a44979a9b0b
+guid: 1cb9af40bc660534aa561e0c232e263e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5850531535416436168
-    second: Chip_0
+      213: 299553425807544012
+    second: Bar Covering_0
   - first:
-      213: 2252873954995663887
-    second: Chip_1
-  - first:
-      213: -2474705228430039132
-    second: Chip_2
-  - first:
-      213: 5356555855148893922
-    second: Chip_3
-  - first:
-      213: 4111091205750169971
-    second: Chip_4
+      213: -8473246541610318747
+    second: Bar Covering_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chip_0
+      name: Bar Covering_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
+        y: 37
+        width: 128
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83a5844e09cbecea0800000000000000
-      internalID: -5850531535416436168
+      spriteID: cce8280f04a382400800000000000000
+      internalID: 299553425807544012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chip_1
+      name: Bar Covering_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 13
+        y: 23
+        width: 10
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,71 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f04fe330de0d34f10800000000000000
-      internalID: 2252873954995663887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chip_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a720afc4b418add0800000000000000
-      internalID: -2474705228430039132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chip_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e640b58b2f465a40800000000000000
-      internalID: 5356555855148893922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chip_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 371a8fd8ba78d0930800000000000000
-      internalID: 4111091205750169971
+      spriteID: 5648201e92bf86a80800000000000000
+      internalID: -8473246541610318747
       vertices: []
       indices: 
       edges: []
@@ -232,19 +160,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a6feae99011a38b478e60c7e1f06c064
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Chip_0: -5850531535416436168
-      Chip_1: 2252873954995663887
-      Chip_2: -2474705228430039132
-      Chip_3: 5356555855148893922
-      Chip_4: 4111091205750169971
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

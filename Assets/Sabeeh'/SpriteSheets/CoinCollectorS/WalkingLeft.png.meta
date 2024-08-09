@@ -125,10 +125,10 @@ TextureImporter:
       name: WalkingLeft_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 77
-        width: 28
-        height: 40
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: WalkingLeft_1
       rect:
         serializedVersion: 2
-        x: 81
-        y: 77
-        width: 28
-        height: 40
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +167,10 @@ TextureImporter:
       name: WalkingLeft_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 13
-        width: 28
-        height: 40
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: WalkingLeft_3
       rect:
         serializedVersion: 2
-        x: 81
-        y: 13
-        width: 28
-        height: 40
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,7 +208,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b934a2c1cafff3141b9848de99cd3656
     internalID: 0
     vertices: []
     indices: 
