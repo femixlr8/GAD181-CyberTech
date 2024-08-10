@@ -5,9 +5,13 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public float laserSpeed = 3f;
+
+    private FWWinningCondition pointsManager;
+
     void Start()
     {
-
+        // finds the componet since its private in a gameobject
+        pointsManager = GameObject.Find("ScoreManager").GetComponent<FWWinningCondition>();
     }
 
     // Update is called once per frame
@@ -25,7 +29,10 @@ public class Laser : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
+            pointsManager.UpdatePoint(1);
+
             Destroy(gameObject);
+
         }
 
         if (collision.gameObject.tag == ("bary"))
