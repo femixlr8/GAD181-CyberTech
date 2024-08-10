@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
       value: EnemyThree
@@ -718,6 +722,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
       value: EnemyThree
@@ -794,6 +802,10 @@ PrefabInstance:
     - target: {fileID: 580852497217166152, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
@@ -1413,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
       value: EnemyThree
@@ -1605,6 +1621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   pointsNumber: {fileID: 910945851}
+  winningPoint: 20
 --- !u!4 &1657457427
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,6 +1752,10 @@ PrefabInstance:
     - target: {fileID: 580852497217166152, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
@@ -1962,6 +1983,10 @@ PrefabInstance:
     - target: {fileID: 580852497217166152, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530679967930436213, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3991133324615372166, guid: 9e4275ef6e913724db5d2d56192d4d23, type: 3}
       propertyPath: m_Name
