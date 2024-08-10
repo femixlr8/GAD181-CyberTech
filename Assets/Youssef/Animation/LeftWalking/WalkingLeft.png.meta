@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2bc167bde5355af4a8d1efe49794c4bd
+guid: 6fa1723a61af43941973aa8b88a872d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6673340638922056412
-    second: Walkingright_0
+      213: -1535948673906825851
+    second: WalkingLeft_0
   - first:
-      213: 2416836564065702815
-    second: Walkingright_1
+      213: 1332348189550758880
+    second: WalkingLeft_1
   - first:
-      213: 5462202684738147723
-    second: Walkingright_2
+      213: 1030117702665322244
+    second: WalkingLeft_2
   - first:
-      213: 3392433876309836191
-    second: Walkingright_3
+      213: 8227008933381841998
+    second: WalkingLeft_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,10 +122,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walkingright_0
+      name: WalkingLeft_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 17
         y: 77
         width: 28
         height: 40
@@ -136,17 +136,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42d5fd7bb088363a0800000000000000
-      internalID: -6673340638922056412
+      spriteID: 5852d82a1d63faae0800000000000000
+      internalID: -1535948673906825851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walkingright_1
+      name: WalkingLeft_1
       rect:
         serializedVersion: 2
-        x: 83
+        x: 81
         y: 77
         width: 28
         height: 40
@@ -157,17 +157,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f93df41dc045a8120800000000000000
-      internalID: 2416836564065702815
+      spriteID: 0ebce4b8e937d7210800000000000000
+      internalID: 1332348189550758880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walkingright_2
+      name: WalkingLeft_2
       rect:
         serializedVersion: 2
-        x: 19
+        x: 17
         y: 13
         width: 28
         height: 40
@@ -178,17 +178,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b85900bd664adcb40800000000000000
-      internalID: 5462202684738147723
+      spriteID: 40f3530c796bb4e00800000000000000
+      internalID: 1030117702665322244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walkingright_3
+      name: WalkingLeft_3
       rect:
         serializedVersion: 2
-        x: 83
+        x: 81
         y: 13
         width: 28
         height: 40
@@ -199,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f910379f2a8541f20800000000000000
-      internalID: 3392433876309836191
+      spriteID: e44a03e49053c2270800000000000000
+      internalID: 8227008933381841998
       vertices: []
       indices: 
       edges: []
@@ -216,10 +216,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walkingright_0: -6673340638922056412
-      Walkingright_1: 2416836564065702815
-      Walkingright_2: 5462202684738147723
-      Walkingright_3: 3392433876309836191
+      WalkingLeft_0: -1535948673906825851
+      WalkingLeft_1: 1332348189550758880
+      WalkingLeft_2: 1030117702665322244
+      WalkingLeft_3: 8227008933381841998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
