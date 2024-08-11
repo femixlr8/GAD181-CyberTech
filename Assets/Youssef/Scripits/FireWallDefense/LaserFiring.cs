@@ -9,6 +9,7 @@ public class LaserFiring : MonoBehaviour
 
     public AudioSource laserSFX;
 
+    
 
     void Update()
     {
