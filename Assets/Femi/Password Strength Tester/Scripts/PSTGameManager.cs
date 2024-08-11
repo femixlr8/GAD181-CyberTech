@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class PSTGameManager : MonoBehaviour
 {
-    public Text timerText;
-    public Text scoreText;
+    public TMP_Text timerText;
+    public TMP_Text scoreText;
     public GameObject gameOverPanel;
     public GameObject gameWonPanel;
     public PSTButton[] buttons;
