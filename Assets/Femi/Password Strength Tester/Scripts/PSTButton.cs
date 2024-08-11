@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PSTButton : MonoBehaviour
 {
-    public Text passwordText;
+    public TMP_Text passwordText;
     public AudioClip correctSound;
     public AudioClip incorrectSound;
     public AudioClip buttonClickSound;
