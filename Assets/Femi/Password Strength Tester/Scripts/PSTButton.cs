@@ -1,20 +1,66 @@
+using System.Collections;
+using System.Text; // Required for StringBuilder
 using UnityEngine;
-using TMPro;
+using TMPro; // Required for TextMeshPro
 
 public class PSTButton : MonoBehaviour
 {
-    public TMP_Text passwordText;
     public AudioClip correctSound;
     public AudioClip incorrectSound;
     public AudioClip buttonClickSound;
-
     private AudioSource audioSource;
-    private string password;
+
+    public string password;
+
+    private TMP_Text buttonText; // Reference to the TextMeshPro text component
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        GeneratePassword();
+        buttonText = GetComponentInChildren<TMP_Text>(); // Get the TMP_Text component on the button
+        GeneratePassword(); // Generate a password when the game starts
+    }
+
+    public void GeneratePassword()
+    {
+        password = GenerateRandomPassword(8); // Generate an 8-character password
+        buttonText.text = password; // Display the password on the button using TextMeshPro
+    }
+
+    private string GenerateRandomPassword(int length)
+    {
+        const string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string lower = "abcdefghijklmnopqrstuvwxyz";
+        const string digits = "0123456789";
+        const string special = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+        StringBuilder passwordBuilder = new StringBuilder();
+        System.Random random = new System.Random();
+
+        // Ensure the password contains at least one of each required type
+        passwordBuilder.Append(upper[random.Next(upper.Length)]);
+        passwordBuilder.Append(lower[random.Next(lower.Length)]);
+        passwordBuilder.Append(digits[random.Next(digits.Length)]);
+        passwordBuilder.Append(special[random.Next(special.Length)]);
+
+        // Fill the remaining characters
+        string allChars = upper + lower + digits + special;
+        for (int i = 4; i < length; i++)
+        {
+            passwordBuilder.Append(allChars[random.Next(allChars.Length)]);
+        }
+
+        // Shuffle the password to ensure random order
+        char[] passwordArray = passwordBuilder.ToString().ToCharArray();
+        for (int i = passwordArray.Length - 1; i > 0; i--)
+        {
+            int j = random.Next(i + 1);
+            char temp = passwordArray[i];
+            passwordArray[i] = passwordArray[j];
+            passwordArray[j] = temp;
+        }
+
+        return new string(passwordArray);
     }
 
     public void OnButtonClick()
@@ -23,9 +69,7 @@ public class PSTButton : MonoBehaviour
 
         if (IsStrongPassword(password))
         {
-            audioSource.PlayOneShot(correctSound);
-            FindObjectOfType<PSTGameManager>().CorrectPassword();
-            gameObject.SetActive(false); // Disable button
+            StartCoroutine(HandleCorrectPassword()); // Start a coroutine to handle correct password
         }
         else
         {
@@ -34,42 +78,29 @@ public class PSTButton : MonoBehaviour
         }
     }
 
-    public void GeneratePassword()
+    private IEnumerator HandleCorrectPassword()
     {
-        password = GenerateRandomPassword();
-        passwordText.text = password;
-    }
+        Debug.Log("Correct Password: " + password);
+        audioSource.PlayOneShot(correctSound);
 
-    private string GenerateRandomPassword()
-    {
-        const string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const string lower = "abcdefghijklmnopqrstuvwxyz";
-        const string digits = "0123456789";
-        const string symbols = "!@#$%^&*";
+        yield return new WaitForSeconds(correctSound.length); // Wait for the correct sound to finish playing
 
-        string characters = upper + lower + digits + symbols;
-        char[] passwordChars = new char[8];
-
-        for (int i = 0; i < passwordChars.Length; i++)
-        {
-            passwordChars[i] = characters[Random.Range(0, characters.Length)];
-        }
-
-        return new string(passwordChars);
+        FindObjectOfType<PSTGameManager>().CorrectPassword();
+        gameObject.SetActive(false); // Disable button after sound plays
     }
 
     private bool IsStrongPassword(string password)
     {
-        bool hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
-
+        bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
         foreach (char c in password)
         {
             if (char.IsUpper(c)) hasUpper = true;
             else if (char.IsLower(c)) hasLower = true;
             else if (char.IsDigit(c)) hasDigit = true;
-            else hasSymbol = true;
-        }
+            else hasSpecial = true;
 
-        return hasUpper && hasLower && hasDigit && hasSymbol;
+            if (hasUpper && hasLower && hasDigit && hasSpecial) return true;
+        }
+        return false;
     }
 }

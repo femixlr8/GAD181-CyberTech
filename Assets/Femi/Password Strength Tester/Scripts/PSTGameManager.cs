@@ -14,6 +14,7 @@ public class PSTGameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1; // Ensure game is running
         UpdateTimer();
         UpdateScore();
         GeneratePasswords();
@@ -24,7 +25,7 @@ public class PSTGameManager : MonoBehaviour
         timer -= Time.deltaTime;
         UpdateTimer();
 
-        if (timer <= 0)
+        if (timer <= 0 && !gameOverPanel.activeSelf && !gameWonPanel.activeSelf) // Check for game over only if the panels are not already active
         {
             GameOver();
         }
@@ -58,12 +59,14 @@ public class PSTGameManager : MonoBehaviour
 
     void GameOver()
     {
+        Debug.Log("Game Over");
         gameOverPanel.SetActive(true);
         Time.timeScale = 0; // Pause the game
     }
 
     void GameWon()
     {
+        Debug.Log("Game Won");
         gameWonPanel.SetActive(true);
         Time.timeScale = 0; // Pause the game
     }
