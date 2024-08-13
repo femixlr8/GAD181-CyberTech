@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1fed8e9265a634b4e9d268dc6b62686a
+guid: 144f364d93b4174449db975cf7ed5f41
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7752023617966180476
-    second: Bar scroll_0
+      213: -7892957945794630066
+    second: rednumbermatrix_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,9 +72,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
-    resizeAlgorithm: 1
-    textureFormat: 4
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bar scroll_0
+      name: rednumbermatrix_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 39
-        width: 50
-        height: 12
+        x: 0
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 487ffa867974b6490800000000000000
-      internalID: -7752023617966180476
+      spriteID: e4e60d52194967290800000000000000
+      internalID: -7892957945794630066
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bar scroll_0: -7752023617966180476
+      rednumbermatrix_0: -7892957945794630066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
