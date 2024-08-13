@@ -13,11 +13,15 @@ public class DTFWinningCondition : MonoBehaviour
         totalBricks = GameObject.FindGameObjectsWithTag("bricks").Length;
 
         destroyedBricks = 0;
+
+        Debug.Log("total bricks=" + totalBricks);
+
     }
 
     public void BricksDestroyed()
     {
         destroyedBricks++;
+        Debug.Log("bricks gone=" + destroyedBricks + "/" + totalBricks);
 
         if (destroyedBricks >= totalBricks) 
         {
