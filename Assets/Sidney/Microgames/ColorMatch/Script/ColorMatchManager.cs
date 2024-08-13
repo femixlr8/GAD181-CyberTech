@@ -107,8 +107,14 @@ public class ColorMatchManager : MonoBehaviour
         // Game over logic (e.g., show game over screen, reset game)
         Debug.Log("Game Over! Final Score: " + score);
 
-        isGameActive = false;
-        gameCanvas.gameObject.SetActive(isGameActive);
+        if (score >= 20)
+        {
+            Debug.Log("You Win!");
+        }
+        else
+        {
+            Debug.Log("You Lost!");
+        }
 
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();

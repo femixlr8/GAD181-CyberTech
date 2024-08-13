@@ -70,6 +70,15 @@ public class MashManiaManager : MonoBehaviour
 
         mashButton.interactable = false;
 
+        if (score > 30)
+        {
+            Debug.Log("You Win!");
+        }
+        else
+        {
+            Debug.Log("You Lost!");
+        }
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }

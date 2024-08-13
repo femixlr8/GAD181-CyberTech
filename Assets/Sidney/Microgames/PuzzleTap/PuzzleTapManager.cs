@@ -70,10 +70,10 @@ public class PuzzleTapManager : MonoBehaviour
     {
         // Generate a random code (sequence) up to 9 numbers long
         buttonSequence.Clear();
-        int codeLength = Random.Range(1, 10); // Length of code between 1 and 9
+        int codeLength = Random.Range(4, 10); // Length of code between 1 and 9
         for (int i = 0; i < codeLength; i++)
         {
-            buttonSequence.Add(Random.Range(1, 10)); // Numbers between 1 and 9
+            buttonSequence.Add(Random.Range(4, 10)); // Numbers between 1 and 9
         }
     }
 
@@ -143,5 +143,8 @@ public class PuzzleTapManager : MonoBehaviour
         {
             button.interactable = false;
         }
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

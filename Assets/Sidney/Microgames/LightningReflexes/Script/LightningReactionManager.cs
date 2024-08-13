@@ -105,6 +105,15 @@ public class LightningReactionManager : MonoBehaviour
 
         StopCoroutine(RandomButtonFlash());
 
+        if (score >= 30)
+        {
+            Debug.Log("You Win!");
+        }
+        else
+        {
+            Debug.Log("You Win!");
+        }
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }

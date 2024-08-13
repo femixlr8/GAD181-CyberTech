@@ -135,5 +135,8 @@ public class TapFrenzyManager : MonoBehaviour
         {
             Debug.Log("You lose!");
         }
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

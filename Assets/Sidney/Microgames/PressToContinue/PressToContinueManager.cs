@@ -13,7 +13,7 @@ public class PressToContinueManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     private int currentStep = 0;
-    private float timer = 10f; // Set the timer duration here
+    private float timer = 15f; // Set the timer duration here
     private bool gameActive = true;
 
     void Start()
@@ -73,5 +73,8 @@ public class PressToContinueManager : MonoBehaviour
         {
             Debug.Log("You lost!");
         }
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

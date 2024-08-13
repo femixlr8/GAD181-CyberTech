@@ -9,13 +9,12 @@ public class PatternPlayManager : MonoBehaviour
     public TextMeshProUGUI[] patternDisplayTexts;  // Text objects displaying the pattern
     public Button[] inputButtons;                  // Buttons the player can press
     public string[] symbols = { "<", "!", "?", "{" }; // The symbols used in the pattern
+    public float timeRemaining = 20f;                   // Countdown timer
+    public TextMeshProUGUI timerText;  // Reference to the Timer Text (Optional)
 
     private List<string> pattern = new List<string>();   // The current pattern to follow
     private int currentStep = 0;                         // Current step in the pattern
-    private float timeRemaining = 20f;                   // Countdown timer
     private bool gameActive = true;
-
-    public TextMeshProUGUI timerText;  // Reference to the Timer Text (Optional)
 
     void Start()
     {
@@ -97,5 +96,8 @@ public class PatternPlayManager : MonoBehaviour
             Debug.Log("You lost!");
             // Additional logic for losing can be added here
         }
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

@@ -90,5 +90,8 @@ public class PrecisionHoldManager : MonoBehaviour, IPointerDownHandler, IPointer
         {
             Debug.Log("You lost!");
         }
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

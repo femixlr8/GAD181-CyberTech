@@ -98,6 +98,15 @@ public class DodgeAndTapManager : MonoBehaviour
             btn.interactable = false;
         }
 
+        if (score >= 40)
+        {
+            Debug.Log("You Win!");
+        }
+        else
+        {
+            Debug.Log("You Lost!");
+        }
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }

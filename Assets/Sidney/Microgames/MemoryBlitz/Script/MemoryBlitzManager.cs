@@ -13,6 +13,7 @@ public class MemoryBlitzManager : MonoBehaviour
     public TextMeshProUGUI turnText;
     public float gameDuration = 30f;
     public float buttonLightDuration = 1f;
+    public float turnDelay = 0.5f; // Delay before starting the next turn
 
     private float timer;
     private int score;
@@ -70,6 +71,8 @@ public class MemoryBlitzManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
+        yield return new WaitForSeconds(turnDelay); // Delay before starting player turn
+
         turnText.text = "Your turn!";
         playerTurn = true;
         currentStep = 0;
@@ -89,15 +92,21 @@ public class MemoryBlitzManager : MonoBehaviour
                 {
                     score++;
                     UpdateScoreText();
-                    StartCoroutine(ShowSequence());
+                    StartCoroutine(HandleNextTurn());
                 }
             }
             else
             {
                 playerTurn = false;
-                StartCoroutine(ShowSequence());
+                StartCoroutine(HandleNextTurn());
             }
         }
+    }
+
+    IEnumerator HandleNextTurn()
+    {
+        yield return new WaitForSeconds(turnDelay); // Delay before starting the next sequence
+        StartCoroutine(ShowSequence());
     }
 
     IEnumerator ButtonClickFeedback(Button button)
@@ -126,6 +135,16 @@ public class MemoryBlitzManager : MonoBehaviour
         foreach (Button btn in sequenceButtons)
         {
             btn.interactable = false;
+        }
+
+        // Check if the score is above 4 and output the result
+        if (score >= 4)
+        {
+            Debug.Log("Player has won!");
+        }
+        else
+        {
+            Debug.Log("Player has lost!");
         }
 
         // Load the next scene using MicroGameManager
