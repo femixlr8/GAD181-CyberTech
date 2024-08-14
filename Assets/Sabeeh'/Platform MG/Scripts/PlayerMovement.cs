@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 4f;
     public float timeToJump = 0.4f;
     private float gravity = 1f;
-
+    AudioSource audioSource;
+    [SerializeField] AudioClip jumpSFX;
 
     private Rigidbody2D rb;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJump, 2);
         jumpStrength = Mathf.Abs(gravity) * timeToJump; 
         rb.gravityScale = gravity / Physics2D.gravity.y;
+        audioSource = FindObjectOfType<AudioSource>();
+       
     }
 
     private void Update()
@@ -50,10 +53,12 @@ public class PlayerMovement : MonoBehaviour
         {
            // rb.AddForce(transform.up * jumpStrength, ForceMode2D.Force);
            rb.velocity = new Vector2 (rb.velocity.x, jumpStrength);
+            audioSource.PlayOneShot(jumpSFX, 0.3f);
         }
         if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0 )
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
