@@ -45,7 +45,7 @@ public class CoinCollectorGameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
-        else if (currentScore <= 0)
+        else if (currentScore < numberOfCoinsToCollect)
         {
             currentTime = 0;
             gameOverPanel.SetActive(true);
@@ -53,7 +53,7 @@ public class CoinCollectorGameManager : MonoBehaviour
             gameOverText.text = "You Lose!";
             Time.timeScale = 0;
         }
-        else if (currentScore > 0)
+        else if (currentScore >= numberOfCoinsToCollect)
         {
             currentTime = 0;
             gameOverPanel.SetActive(true);

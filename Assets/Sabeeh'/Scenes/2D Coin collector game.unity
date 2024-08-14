@@ -157,6 +157,7 @@ MonoBehaviour:
   isGrounded: 0
   jumpHeight: 6
   timeToJump: 0.4
+  jumpSFX: {fileID: 8300000, guid: 5a4c1e7e25e155c4fa3a98f2bf9944ce, type: 3}
 --- !u!212 &8285709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -311,8 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8018341c9b8545040b49bc9e037fcc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: {fileID: 0}
+  healthValue: {fileID: 0}
   health: 5
+  hitSFX: {fileID: 0}
 --- !u!1 &219033358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8181381743846946125, guid: 2b1f22d6a8abfdb458bfa0f6346b0666, type: 3}
@@ -1254,8 +1256,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5f545c689908e2f4b9756e20d22e1e38, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5f545c689908e2f4b9756e20d22e1e38, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3600,7 +3602,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 311255802}
   gameOverScoreValue: {fileID: 1631207261}
   currentTime: 0
-  initTime: 25
+  initTime: 10
   gameOverText: {fileID: 2106677670}
   gameOverBackground: {fileID: 311255804}
   timerValue: {fileID: 1155398468}

@@ -157,6 +157,7 @@ MonoBehaviour:
   isGrounded: 0
   jumpHeight: 4
   timeToJump: 0.4
+  jumpSFX: {fileID: 8300000, guid: 5a4c1e7e25e155c4fa3a98f2bf9944ce, type: 3}
 --- !u!212 &8285709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -313,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthValue: {fileID: 185859365}
   health: 3
+  hitSFX: {fileID: 8300000, guid: fe72bb4d9e0f04c4dbe157c6dcfda977, type: 3}
 --- !u!1 &48985833
 GameObject:
   m_ObjectHideFlags: 0
