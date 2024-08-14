@@ -61,12 +61,16 @@ public class PSTGameManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0; // Pause the game
+       // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     void GameWon()
     {
         gameWonPanel.SetActive(true);
         Time.timeScale = 0; // Pause the game
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     void GeneratePasswords()

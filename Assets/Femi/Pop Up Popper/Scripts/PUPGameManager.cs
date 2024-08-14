@@ -76,6 +76,8 @@ public class PUPGameManager : MonoBehaviour
         {
             gameOverPanel.SetActive(true); // Display "Game Over!" screen
         }
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     void SpawnPopUp()

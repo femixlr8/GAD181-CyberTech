@@ -95,11 +95,15 @@ public class SCCGameManager : MonoBehaviour
     {
         gameActive = false;
         gameOverPanel.SetActive(true);
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 
     private void GameWon()
     {
         gameActive = false;
         gameWonPanel.SetActive(true);
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }
