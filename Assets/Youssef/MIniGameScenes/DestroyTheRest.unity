@@ -2892,11 +2892,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6306807436234228306, guid: a07aedc8f9b8e9d43a6b7558e5d708d1, type: 3}
       propertyPath: maxVel
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6306807436234228306, guid: a07aedc8f9b8e9d43a6b7558e5d708d1, type: 3}
       propertyPath: minVel
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8242568204402319256, guid: a07aedc8f9b8e9d43a6b7558e5d708d1, type: 3}
       propertyPath: m_Sprite

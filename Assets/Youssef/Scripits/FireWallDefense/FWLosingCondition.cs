@@ -9,13 +9,15 @@ public class FWLosingCondition : MonoBehaviour
     private int healthPoint = 4;
 
     //UI and Audio
-    public AudioSource explosionSFX;
+
 
     public Image[] livesUI;
 
+    GameObject player;
+
     void Start()
     {
-        explosionSFX = GetComponent<AudioSource>();
+       
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -39,12 +41,10 @@ public class FWLosingCondition : MonoBehaviour
 
             if (healthPoint <= 0)
             {
-                if (explosionSFX != null)
-                {
-                    explosionSFX.Play();
-                }
-                Destroy(gameObject, explosionSFX.clip.length);
+                Debug.Log("You died!");
 
+                Destroy(gameObject);
+                
                 // Notify MicroGameManager to load the next scene
                 MicroGameManager.Instance.LoadNextScene();
             }

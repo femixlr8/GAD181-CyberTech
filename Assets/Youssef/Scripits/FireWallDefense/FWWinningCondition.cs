@@ -11,7 +11,7 @@ public class FWWinningCondition : MonoBehaviour
 
     public TMP_Text pointsNumber;
 
-    public int winningPoint = 20;
+    public int winningPoint = 12;
 
     void Start()
     {
