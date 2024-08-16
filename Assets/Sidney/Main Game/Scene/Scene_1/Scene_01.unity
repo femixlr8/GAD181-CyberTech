@@ -1302,7 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[2]'
-      value: 'DestroyTheRest '
+      value: DestroyTheRest
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[3]'
@@ -1314,7 +1314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[5]'
-      value: 'PST Scene '
+      value: PST Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[6]'

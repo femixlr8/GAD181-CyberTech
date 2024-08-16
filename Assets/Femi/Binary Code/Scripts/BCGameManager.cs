@@ -115,6 +115,7 @@ public class BCGameManager : MonoBehaviour
         gameActive = false; // Stop the game
         audioSource.PlayOneShot(correctSound); // Play the correct sound
         gameWonPanel.SetActive(true); // Show the game won panel
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }
@@ -125,6 +126,7 @@ public class BCGameManager : MonoBehaviour
         gameActive = false; // Stop the game
         audioSource.PlayOneShot(incorrectSound); // Play the incorrect sound
         gameOverPanel.SetActive(true); // Show the game over panel
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }
