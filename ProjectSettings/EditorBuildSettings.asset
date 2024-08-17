@@ -39,19 +39,19 @@ EditorBuildSettings:
     path: Assets/Sidney/Main Game/Scene/Scene_10.unity
     guid: 2d233d72ce92eb64e9d22a9711d79437
   - enabled: 1
-    path: Assets/Femi/Mail Sort/Scene/MailSortScene.unity
+    path: Assets/Fathima/Mail Sort/Scene/MailSortScene.unity
     guid: c285bcf3629054b4196a6d05beaafc61
   - enabled: 1
-    path: Assets/Femi/Virus Shooter/Scene/Virus Shooter Scene.unity
+    path: Assets/Fathima/Virus Shooter/Scene/Virus Shooter Scene.unity
     guid: 07568a98dde102e478086d4dd2b701f0
   - enabled: 1
-    path: Assets/Femi/Pop Up Popper/Scene/PopUpPopper Scene.unity
+    path: Assets/Fathima/Pop Up Popper/Scene/PopUpPopper Scene.unity
     guid: 8727a35ff26fa0c40a0121c669d02614
   - enabled: 1
-    path: Assets/Femi/Binary Code/Scene/BinaryCodeScene.unity
+    path: Assets/Fathima/Binary Code/Scene/BinaryCodeScene.unity
     guid: 323c041a586fd7b4c9c30c88312a281f
   - enabled: 1
-    path: Assets/Femi/Security Code Clicker/Scene/SecurityCodeClicker Scene.unity
+    path: Assets/Fathima/Security Code Clicker/Scene/SecurityCodeClicker Scene.unity
     guid: 207a048875a5ddd4c8b09add7ec7a44c
   - enabled: 1
     path: Assets/Youssef/MIniGameScenes/FireWallDefense.unity
@@ -72,10 +72,10 @@ EditorBuildSettings:
     path: Assets/Youssef/MIniGameScenes/DestroyTheRest.unity
     guid: 4135569a4b3a8c94c91c4a20bce32617
   - enabled: 1
-    path: Assets/Femi/Password Strength Tester/Scene/PST Scene.unity
+    path: Assets/Fathima/Password Strength Tester/Scene/PST Scene.unity
     guid: bcc06689cdf8ae041ac5dffd4c79f13e
   - enabled: 1
-    path: Assets/Femi/Icon Clicker/Scene/Icon Clicker Scene.unity
+    path: Assets/Fathima/Icon Clicker/Scene/Icon Clicker Scene.unity
     guid: e92facafb6344a547aeea4fc012d8f0a
   - enabled: 1
     path: Assets/Sidney/Main Game/Scene/Game End/Game End Scene.unity
