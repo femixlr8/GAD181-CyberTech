@@ -77,5 +77,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Femi/Icon Clicker/Scene/Icon Clicker Scene.unity
     guid: e92facafb6344a547aeea4fc012d8f0a
+  - enabled: 1
+    path: Assets/Sidney/Main Game/Scene/Game End/Game End Scene.unity
+    guid: 993c8bbe9dccdfb4c81d4145e0e8c319
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

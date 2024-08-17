@@ -73,6 +73,7 @@ public class MashManiaManager : MonoBehaviour
         if (score > 30)
         {
             Debug.Log("You Win!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

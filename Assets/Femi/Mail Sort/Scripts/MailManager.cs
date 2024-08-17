@@ -54,6 +54,8 @@ public class MailManager : MonoBehaviour
                 isGameOver = true;
                 gameWonScreen.SetActive(true);
 
+                MicroGameManager.Instance.IncreaseScore();
+
                 // Notify MicroGameManager to load the next scene
                 MicroGameManager.Instance.LoadNextScene();
             }

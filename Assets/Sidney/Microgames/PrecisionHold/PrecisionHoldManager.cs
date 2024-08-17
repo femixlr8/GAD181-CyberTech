@@ -85,6 +85,7 @@ public class PrecisionHoldManager : MonoBehaviour, IPointerDownHandler, IPointer
         if (won)
         {
             Debug.Log("You won!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

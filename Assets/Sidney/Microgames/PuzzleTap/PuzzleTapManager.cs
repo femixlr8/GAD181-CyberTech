@@ -132,6 +132,7 @@ public class PuzzleTapManager : MonoBehaviour
         if (won)
         {
             Debug.Log("You won!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

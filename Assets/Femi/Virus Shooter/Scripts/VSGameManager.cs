@@ -91,6 +91,8 @@ public class VSGameManager : MonoBehaviour
         CancelInvoke(nameof(SpawnVirus));
         gameWonScreen.SetActive(true);
 
+        MicroGameManager.Instance.IncreaseScore();
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }

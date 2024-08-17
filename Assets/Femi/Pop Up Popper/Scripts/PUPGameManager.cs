@@ -71,6 +71,7 @@ public class PUPGameManager : MonoBehaviour
         if (won)
         {
             gameWonPanel.SetActive(true); // Display "You Won!" screen
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

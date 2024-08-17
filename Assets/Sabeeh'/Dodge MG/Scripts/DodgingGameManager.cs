@@ -41,9 +41,10 @@ public class DodgingGameManager : MonoBehaviour
         if (player.health <= 0)
         {
             gameOverPanel.SetActive(true);
-            Time.timeScale = 0;
             gameOverBackground.color = Color.red;
             gameOverText.text = "Game Over";
+
+            MicroGameManager.Instance.LoadNextScene();
         }
     }
 
@@ -59,7 +60,7 @@ public class DodgingGameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
-            Time.timeScale = 0;
+            MicroGameManager.Instance.IncreaseScore();
             if (victoryMusicPlayed == false)
             {
                 victoryMusicPlayed = true;
@@ -82,12 +83,14 @@ public class DodgingGameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
-            Time.timeScale = 0;
+            MicroGameManager.Instance.IncreaseScore();
             if (victoryMusicPlayed == false)
             {
                 victoryMusicPlayed = true;
                 audioSource.PlayOneShot(audioClip, 0.1f);
             }
+
+            MicroGameManager.Instance.LoadNextScene();
 
         }
     }

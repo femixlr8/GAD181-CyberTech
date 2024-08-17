@@ -19,7 +19,7 @@ public class ColorMatchManager : MonoBehaviour
     public ColorButtons blueButton;
 
     private int score = 0;
-    private float timeLeft = 30f;
+    public float timeLeft = 20;
     private string[] colorNames = { "Red", "Yellow", "Green", "Blue" };
     private string currentTargetColor;
     private Coroutine timerCoroutine;
@@ -42,7 +42,6 @@ public class ColorMatchManager : MonoBehaviour
     void StartNewGame()
     {
         score = 0;
-        timeLeft = 30f;
         StartNewRound();
         if (timerCoroutine != null)
         {
@@ -110,6 +109,7 @@ public class ColorMatchManager : MonoBehaviour
         if (score >= 20)
         {
             Debug.Log("You Win!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

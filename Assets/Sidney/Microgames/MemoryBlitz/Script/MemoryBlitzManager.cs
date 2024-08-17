@@ -141,6 +141,7 @@ public class MemoryBlitzManager : MonoBehaviour
         if (score >= 4)
         {
             Debug.Log("Player has won!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

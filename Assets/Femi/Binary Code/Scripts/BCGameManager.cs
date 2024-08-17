@@ -116,6 +116,8 @@ public class BCGameManager : MonoBehaviour
         audioSource.PlayOneShot(correctSound); // Play the correct sound
         gameWonPanel.SetActive(true); // Show the game won panel
 
+        MicroGameManager.Instance.IncreaseScore();
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }

@@ -36,6 +36,9 @@ public class FWWinningCondition : MonoBehaviour
 
     void WinGame()
     {
-        SceneManager.LoadScene("");
+        MicroGameManager.Instance.IncreaseScore();
+
+        // Notify MicroGameManager to load the next scene
+        MicroGameManager.Instance.LoadNextScene();
     }
 }

@@ -130,6 +130,7 @@ public class TapFrenzyManager : MonoBehaviour
         if (score >= 20)
         {
             Debug.Log("You win!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

@@ -1294,7 +1294,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: sceneNames.Array.size
-      value: 23
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
+      propertyPath: 'sceneNames.Array.data[0]'
+      value: Scene_01
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[1]'
@@ -1322,11 +1326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[7]'
-      value: 'MalwareAttacks '
+      value: MalwareAttacks
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[8]'
-      value: '2D Coin collector game '
+      value: 2D Coin collector game
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[9]'
@@ -1334,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[10]'
-      value: 'SecurityCodeClicker Scene '
+      value: SecurityCodeClicker Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[11]'
@@ -1342,11 +1346,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[12]'
-      value: '2D Mingame '
+      value: 2D Mingame
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[13]'
-      value: 'PopUpPopper Scene '
+      value: PopUpPopper Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[14]'
@@ -1362,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[17]'
-      value: 'Icon Clicker Scene '
+      value: Icon Clicker Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[18]'
@@ -1370,11 +1374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[19]'
-      value: 'FireWallDefense '
+      value: FireWallDefense
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[20]'
-      value: 'Virus Shooter Scene '
+      value: Virus Shooter Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[21]'
@@ -1383,6 +1387,10 @@ PrefabInstance:
     - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: 'sceneNames.Array.data[22]'
       value: 2D platformer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143326754922256403, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
+      propertyPath: 'sceneNames.Array.data[23]'
+      value: Game End Scene
       objectReference: {fileID: 0}
     - target: {fileID: 6517403157732785004, guid: b0fa2f26e7b881c41b8381d61bfd5893, type: 3}
       propertyPath: m_Name

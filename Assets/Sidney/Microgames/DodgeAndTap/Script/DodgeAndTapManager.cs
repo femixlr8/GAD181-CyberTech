@@ -101,6 +101,7 @@ public class DodgeAndTapManager : MonoBehaviour
         if (score >= 40)
         {
             Debug.Log("You Win!");
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

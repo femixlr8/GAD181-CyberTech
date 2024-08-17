@@ -51,7 +51,8 @@ public class CoinCollectorGameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.red;
             gameOverText.text = "You Lose!";
-            Time.timeScale = 0;
+
+            MicroGameManager.Instance.LoadNextScene();
         }
         else if (currentScore >= numberOfCoinsToCollect)
         {
@@ -59,12 +60,14 @@ public class CoinCollectorGameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
-            Time.timeScale = 0;
+            MicroGameManager.Instance.IncreaseScore();
             if (victoryMusicPlayed == false)
             {
                 victoryMusicPlayed = true;
                 audioSource.PlayOneShot(audioClip, 0.1f);
             }
+
+            MicroGameManager.Instance.LoadNextScene();
         }
         int timerINT = (int)currentTime;
 
@@ -81,12 +84,14 @@ public class CoinCollectorGameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             gameOverBackground.color = Color.green;
             gameOverText.text = "You Win!";
-            Time.timeScale = 0;
+            MicroGameManager.Instance.IncreaseScore();
             if (victoryMusicPlayed == false)
             {
                 victoryMusicPlayed = true;
                 audioSource.PlayOneShot(audioClip, 0.1f);
             }
+
+            MicroGameManager.Instance.LoadNextScene();
         }
     }
 }

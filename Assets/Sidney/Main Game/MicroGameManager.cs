@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MicroGameManager : MonoBehaviour
 {
+
+    public int playerScore;
     public static MicroGameManager Instance { get; private set; }
 
     [Header("Scene Transition Settings")]
@@ -63,5 +65,10 @@ public class MicroGameManager : MonoBehaviour
 
         // Load the next scene
         SceneManager.LoadScene(sceneNames[currentSceneIndex]);
+    }
+
+    public void IncreaseScore()
+    {
+        playerScore += 1;
     }
 }

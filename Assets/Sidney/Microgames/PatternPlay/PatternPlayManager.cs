@@ -90,6 +90,7 @@ public class PatternPlayManager : MonoBehaviour
         {
             Debug.Log("You won!");
             // Additional logic for winning can be added here
+            MicroGameManager.Instance.IncreaseScore();
         }
         else
         {

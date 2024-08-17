@@ -25,6 +25,8 @@ public class DTFWinningCondition : MonoBehaviour
 
         if (destroyedBricks >= totalBricks) 
         {
+            MicroGameManager.Instance.IncreaseScore();
+
             // Notify MicroGameManager to load the next scene
             MicroGameManager.Instance.LoadNextScene();
         }

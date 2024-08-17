@@ -60,7 +60,6 @@ public class PSTGameManager : MonoBehaviour
     void GameOver()
     {
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0; // Pause the game
        // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }
@@ -68,7 +67,9 @@ public class PSTGameManager : MonoBehaviour
     void GameWon()
     {
         gameWonPanel.SetActive(true);
-        Time.timeScale = 0; // Pause the game
+
+        MicroGameManager.Instance.IncreaseScore();
+
         // Notify MicroGameManager to load the next scene
         MicroGameManager.Instance.LoadNextScene();
     }
