@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa3a248bb6025df428c801836f4157aa
+guid: a7442f4c0a231524dac9b3c61dbd7f8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3897177375290867790
-    second: MM Play Button_0
+      213: 283196348610162567
+    second: To_Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MM Play Button_0
+      name: To_Button_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 51
-        width: 115
-        height: 36
+        x: 0
+        y: 0
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e40c6e8bc2e851630800000000000000
-      internalID: 3897177375290867790
+      spriteID: 78fa890249d1ee300800000000000000
+      internalID: 283196348610162567
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MM Play Button_0: 3897177375290867790
+      To_Button_0: 283196348610162567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
